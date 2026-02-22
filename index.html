@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zero Quantum Frequency</title>
+
+<!-- PWA -->
+<link rel="manifest" href="data:application/manifest+json,{
+  &quot;name&quot;:&quot;Zero Quantum Frequency&quot;,
+  &quot;short_name&quot;:&quot;ZQF&quot;,
+  &quot;start_url&quot;:&quot;./&quot;,
+  &quot;display&quot;:&quot;standalone&quot;,
+  &quot;background_color&quot;:&quot;#071826&quot;,
+  &quot;theme_color&quot;:&quot;#0c2d48&quot;
+}">
+
+<style>
+body{
+margin:0;
+font-family:system-ui;
+background:#071826;
+color:#f1e2a6;
+text-align:center;
+}
+
+header{
+background:linear-gradient(90deg,#5b2c83,#402060);
+padding:18px;
+font-size:22px;
+font-weight:bold;
+color:white;
+}
+
+.container{
+padding:20px;
+}
+
+h1{
+font-size:34px;
+margin-top:10px;
+}
+
+.subtitle{
+color:#d9c27a;
+margin-bottom:25px;
+}
+
+.btn{
+display:block;
+background:#000;
+color:#e8d48a;
+padding:16px;
+margin:14px auto;
+width:90%;
+max-width:400px;
+border-radius:18px;
+text-decoration:none;
+font-size:20px;
+box-shadow:0 0 18px rgba(255,215,0,0.2);
+}
+
+.btn:hover{
+background:#121212;
+}
+
+.back{
+background:#888;
+color:#000;
+padding:10px 20px;
+border-radius:8px;
+display:inline-block;
+margin-bottom:15px;
+}
+
+.page{display:none;}
+.active{display:block;}
+
+.quote{
+margin-top:25px;
+font-size:18px;
+line-height:1.6;
+}
+
+.big{
+font-size:24px;
+}
+
+.footer{
+margin-top:40px;
+color:#aaa;
+font-size:14px;
+}
+
+.contact a{
+display:block;
+background:#444;
+color:#f1e2a6;
+padding:15px;
+margin:12px auto;
+width:90%;
+max-width:380px;
+border-radius:14px;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<header id="title">Home</header>
+
+<!-- HOME -->
+<div id="home" class="container page active">
+<h1>Zero Quantum<br>Frequency™</h1>
+<div class="subtitle">— RETURN TO YOUR ORIGINAL STATE —</div>
+
+<a class="btn" onclick="openPage('about','About Us')">About Us</a>
+<a class="btn" onclick="openPage('books','Books')">Books</a>
+<a class="btn" onclick="openPage('courses','Courses')">Courses</a>
+<a class="btn" onclick="openPage('krishna','Krishna Code')">Krishna Code</a>
+<a class="btn" onclick="openPage('contact','Contact')">Contact</a>
+
+<div class="footer">
+Zero Quantum Frequency™ © Gandharwa Anand
+</div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="container page">
+<a class="back" onclick="goHome()">Back</a>
+
+<p class="big">
+जब आप Zero Quantum Frequency पर स्थिर होते हैं, तो अनावश्यक विचार शांत होकर लक्ष्य की तरंगें जागृत होती हैं।
+</p>
+
+<p class="quote">
+Zero Quantum Frequency reveals the space within where mental weight dissolves and life flows peacefully.
+</p>
+</div>
+
+<!-- COURSES -->
+<div id="courses" class="container page">
+<a class="back" onclick="goHome()">Back</a>
+
+<h2>Zero Frequency Starter</h2>
+<p class="quote">
+मन की शांति का पहला कदम
+</p>
+
+<p>
+यह उन्नत कोर्स आपकी चेतना और ऊर्जा को उच्च आवृत्ति पर ले जाकर स्पष्टता और आकर्षण-शक्ति को सक्रिय करता है।
+</p>
+</div>
+
+<!-- KRISHNA -->
+<div id="krishna" class="container page">
+<a class="back" onclick="goHome()">Back</a>
+
+<h2>Decode The Secrets of Wealth & Wisdom</h2>
+
+<p class="quote">
+✨ Return to Zero — Where Silence Speaks ✨
+</p>
+</div>
+
+<!-- BOOKS -->
+<div id="books" class="container page">
+<a class="back" onclick="goHome()">Back</a>
+
+<h2>गीता ज्ञान</h2>
+
+<p class="quote">
+न हि ज्ञानेन सदृशं पवित्रमिह विद्यते।
+तत्स्वयं योगसंसिद्धः कालेनात्मनि विन्दति॥
+</p>
+
+<p>
+इस संसार में दिव्यज्ञान के समान कुछ भी शुद्ध नहीं है।
+</p>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="container page contact">
+<a class="back" onclick="goHome()">Back</a>
+
+<a href="mailto:youremail@gmail.com">📧 Email Us</a>
+<a href="https://facebook.com">📘 Facebook</a>
+<a href="https://instagram.com">📷 Instagram</a>
+<a href="https://youtube.com">▶ YouTube Channel</a>
+<a href="https://t.me/">✈ Telegram</a>
+<a href="https://wa.me/91XXXXXXXXXX">💬 WhatsApp Channel</a>
+
+<p class="quote">Inner Peace, Infinite Riches</p>
+
+</div>
+
+<script>
+function openPage(id,title){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.getElementById('title').innerText=title;
+window.scrollTo(0,0);
+}
+
+function goHome(){
+openPage('home','Home');
+}
+</script>
+
+</body>
+</html>
