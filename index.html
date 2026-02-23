@@ -269,17 +269,20 @@ letter-spacing:1px;
   /* Photo gallery */
 .gallery{
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
+grid-template-columns:1fr;   /* 👈 एक-एक करके दिखेगा */
+gap:16px;
 margin-top:25px;
+max-width:320px;
+margin-left:auto;
+margin-right:auto;
 }
-
 .gallery img{
 width:100%;
-border-radius:16px;
+border-radius:18px;
 cursor:pointer;
 transition:0.3s;
-box-shadow:0 0 16px rgba(255,215,120,0.25);
+box-shadow:0 0 18px rgba(255,215,120,0.25);
+object-fit:cover;
 }
 
 .gallery img:hover{
