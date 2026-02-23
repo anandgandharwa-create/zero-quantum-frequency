@@ -523,21 +523,33 @@ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById(id).classList.add('active');
 document.getElementById('title').innerText=title;
 window.scrollTo(0,0);
+
+/* 👇 यही जादू है */
+setTimeout(initGallery,300);
 }
 
 function goHome(){
 openPage('home','Home');
 }
 
+function initGallery(){
+
 const imgs=document.querySelectorAll('.gallery img');
 const viewer=document.getElementById('viewer');
 const viewImg=document.getElementById('viewImg');
 
 imgs.forEach(img=>{
-  img.onclick=()=>{
+  img.addEventListener('click',function(){
     viewer.style.display='flex';
-    viewImg.src=img.src;
-  }
+    viewImg.src=this.src;
+  });
+});
+
+}
+
+function closeImg(){
+document.getElementById('viewer').style.display='none';
+}
 });
 
 function closeImg(){
