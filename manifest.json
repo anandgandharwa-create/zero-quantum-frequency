@@ -1,0 +1,23 @@
+{
+  "name": "Zero Quantum Frequency",
+  "short_name": "ZQF",
+  "start_url": "/zero-quantum-frequency/index.html",
+  "scope": "/zero-quantum-frequency/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#061a26",
+  "theme_color": "#4b2a73",
+  "description": "Return to your original state - Inner Peace Infinite Riches",
+  "icons": [
+    {
+      "src": "/zero-quantum-frequency/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/zero-quantum-frequency/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
