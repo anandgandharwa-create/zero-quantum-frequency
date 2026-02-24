@@ -700,6 +700,23 @@ if ("serviceWorker" in navigator) {
   .then(() => console.log("PWA Ready"))
   .catch(err => console.log(err));
 }
+    <script>
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = 'block';
+});
+
+installBtn.addEventListener('click', async () => {
+  installBtn.style.display = 'none';
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  console.log(`User response: ${outcome}`);
+  deferredPrompt = null;
+});
 </script>
 </body>
 </html>
