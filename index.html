@@ -447,9 +447,7 @@ Chrome में ऊपर <b>⋮</b> दबाएँ → <b>Install App</b>
 🧠 Mind OS
 </a>
 <a class="btn" onclick="openPage('contact','Contact')">Contact</a>
-<button id="installBtn" class="btn" style="display:none;background:#0c2d48;">
-⬇ Install Zero Quantum App
-</button>
+
 <div class="footer">
 Zero Quantum Frequency™ © Gandharwa Anand
 </div>
@@ -707,19 +705,10 @@ imgs.forEach(img=>{
 function closeImg(){
 document.getElementById('viewer').style.display='none';
 }
-
-
 </script>
 <div class="viewer" id="viewer" onclick="closeImg()">
   <img id="viewImg">
 </div>
-<script>
-if ("serviceWorker" in navigator) {
- navigator.serviceWorker.register("service-worker.js")
-  .then(() => console.log("PWA Ready"))
-  .catch(err => console.log(err));
-}
-</script>
 
 <script>
 /* SERVICE WORKER */
@@ -727,45 +716,6 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("service-worker.js");
   });
-}
-
-/* INSTALL BUTTON */
-let deferredPrompt;
-
-window.addEventListener('DOMContentLoaded', () => {
-  const installBtn = document.getElementById('installBtn');
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    installBtn.style.display = 'block';
-  });
-
-  installBtn.addEventListener('click', async () => {
-    installBtn.style.display = 'none';
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log("User response:", outcome);
-    deferredPrompt = null;
-  });
-});
-</script>
-  <script>
-function isMobile() {
- return /Android|iPhone|iPad/i.test(navigator.userAgent);
-}
-
-function isStandalone() {
- return window.matchMedia('(display-mode: standalone)').matches;
-}
-
-window.addEventListener("load", () => {
- if(isMobile() && !isStandalone()){
-   setTimeout(()=>{
-     document.getElementById("installGuide").style.display="block";
-   },3000);
- }
-});
 </script>
 </body>
 </html>
