@@ -692,5 +692,12 @@ document.getElementById('viewer').style.display='none';
 <div class="viewer" id="viewer" onclick="closeImg()">
   <img id="viewImg">
 </div>
+  <script>
+if ("serviceWorker" in navigator) {
+ navigator.serviceWorker.register("service-worker.js")
+  .then(() => console.log("PWA Ready"))
+  .catch(err => console.log(err));
+}
+</script>
 </body>
 </html>
