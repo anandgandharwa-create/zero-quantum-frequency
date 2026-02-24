@@ -703,23 +703,33 @@ if ("serviceWorker" in navigator) {
 </script>
 
 <script>
+/* SERVICE WORKER */
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("service-worker.js");
+  });
+}
+
+/* INSTALL BUTTON */
 let deferredPrompt;
-const installBtn = document.getElementById('installBtn');
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  installBtn.style.display = 'block';
-});
+window.addEventListener('DOMContentLoaded', () => {
+  const installBtn = document.getElementById('installBtn');
 
-installBtn.addEventListener('click', async () => {
-  installBtn.style.display = 'none';
-  deferredPrompt.prompt();
-  const { outcome } = await deferredPrompt.userChoice;
-  console.log("User response:", outcome);
-  deferredPrompt = null;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.style.display = 'block';
+  });
+
+  installBtn.addEventListener('click', async () => {
+    installBtn.style.display = 'none';
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log("User response:", outcome);
+    deferredPrompt = null;
+  });
 });
-</script>
 </script>
 </body>
 </html>
