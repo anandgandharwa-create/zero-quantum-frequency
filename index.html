@@ -694,13 +694,15 @@ document.getElementById('viewer').style.display='none';
 <div class="viewer" id="viewer" onclick="closeImg()">
   <img id="viewImg">
 </div>
-  <script>
+<script>
 if ("serviceWorker" in navigator) {
  navigator.serviceWorker.register("service-worker.js")
   .then(() => console.log("PWA Ready"))
   .catch(err => console.log(err));
 }
-    <script>
+</script>
+
+<script>
 let deferredPrompt;
 const installBtn = document.getElementById('installBtn');
 
@@ -714,9 +716,10 @@ installBtn.addEventListener('click', async () => {
   installBtn.style.display = 'none';
   deferredPrompt.prompt();
   const { outcome } = await deferredPrompt.userChoice;
-  console.log(`User response: ${outcome}`);
+  console.log("User response:", outcome);
   deferredPrompt = null;
 });
+</script>
 </script>
 </body>
 </html>
