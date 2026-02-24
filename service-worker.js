@@ -1,4 +1,4 @@
-const CACHE_NAME = "zqf-cache-v2";
+const CACHE_NAME = "zqf-2026-02-24";   // <-- हर update पर सिर्फ यही बदलना
 
 const urlsToCache = [
   "/zero-quantum-frequency/",
@@ -9,37 +9,50 @@ const urlsToCache = [
   "/zero-quantum-frequency/mindos.html"
 ];
 
+
 // INSTALL
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(urlsToCache))
   );
-  self.skipWaiting();
+  self.skipWaiting(); // नया SW तुरंत तैयार
 });
 
-// ACTIVATE
-self.addEventListener("activate", event => {
-  event.waitUntil(self.clients.claim());
-});
 
-// FETCH (offline support)
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
-  );
-});
+// ACTIVATE (पुराने cache delete + control ले)
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(keys => {
       return Promise.all(
-        keys.filter(key => key !== CACHE_NAME)
-        .map(key => caches.delete(key))
+        keys.map(key => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
       );
     })
   );
   self.clients.claim();
+});
+
+
+// FETCH (offline + auto update cache)
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+
+      // cache मिला → वही दिखाओ
+      if (response) return response;
+
+      // नहीं मिला → net से लो और cache में save भी करो
+      return fetch(event.request).then(networkResponse => {
+        return caches.open(CACHE_NAME).then(cache => {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        });
+      });
+
+    })
+  );
 });
