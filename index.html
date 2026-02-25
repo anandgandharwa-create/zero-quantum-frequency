@@ -520,9 +520,28 @@ SRINAGAR, J & K
 
 <!-- COURSES -->
 <div id="courses" class="container page">
+
 <a class="back" onclick="goHome()">Back</a>
+
 <div class="comingSoon">COMING SOON</div>
+
+<!-- QUESTION BUTTON (TOP) -->
+<div style="text-align:center; margin:25px 0;">
+<a onclick="openPrashn()" style="
+display:inline-block;
+background:#6b2cff;
+color:white;
+padding:12px 20px;
+border-radius:12px;
+text-decoration:none;
+font-size:17px;
+cursor:pointer;">
+🕉 कोई प्रश्न है? यहाँ लिखें
+</a>
+</div>
+
 <h2>ZQ Frequency Starter</h2>
+
 <p class="courseTagline">
 मन की शांति का पहला कदम
 </p>
@@ -530,10 +549,12 @@ SRINAGAR, J & K
 <p class="courseDesc">
 यह उन्नत कोर्स आपकी चेतना और ऊर्जा को उच्च आवृत्ति पर ले जाकर स्पष्टता और आकर्षण-शक्ति को सक्रिय करता है।
 </p>
- <p class="courseHighlight">
+
+<p class="courseHighlight">
 "आप एक ऐसी जेल में हैं जिसमें ना सलाखें हैं, ना दीवारें और ना ताला"
 </p>
-  <div class="coursePromo">
+
+<div class="coursePromo">
 
 <div class="coursePromoTitle">ZQ Frequency Starter</div>
 
@@ -551,6 +572,30 @@ SRINAGAR, J & K
 
 <div class="courseClosing">
 ZQ Frequency Starter – क्योंकि सच्ची समृद्धि भीतर की शांति से प्रारंभ होती है।
+</div>
+
+<!-- QUESTION BUTTON (BOTTOM) -->
+<div style="text-align:center; margin-top:50px;">
+
+<h3 style="color:#c084fc;">साधना में प्रश्न आना प्रगति का संकेत है</h3>
+
+<p style="max-width:600px; margin:auto; line-height:1.6;">
+यदि आपके भीतर कोई उलझन है, आप यहाँ लिख सकते हैं।
+</p>
+
+<a onclick="openPrashn()" style="
+display:inline-block;
+margin-top:20px;
+background:#6b2cff;
+color:white;
+padding:14px 22px;
+border-radius:12px;
+text-decoration:none;
+font-size:18px;
+cursor:pointer;">
+🕉 अपने भीतर के प्रश्न पूछें
+</a>
+
 </div>
 
 </div>
@@ -720,6 +765,11 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('service-worker.js');
   });
+}
+</script>
+  <script>
+function openPrashn(){
+window.open("prashn.html","_self");
 }
 </script>
 </body>
