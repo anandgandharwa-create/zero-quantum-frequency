@@ -7,6 +7,7 @@ const urlsToCache = [
   "/zero-quantum-frequency/icon-192.png",
   "/zero-quantum-frequency/icon-512.png",
   "/zero-quantum-frequency/mindos.html"
+  "/zero-quantum-frequency/prashn.html",
 ];
 
 
