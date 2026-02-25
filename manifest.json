@@ -1,7 +1,7 @@
 {
   "name": "Zero Quantum Frequency",
   "short_name": "ZQ Frequency",
-  "start_url": "/zero-quantum-frequency/",
+ "start_url": "/zero-quantum-frequency/index.html",
   "scope": "/zero-quantum-frequency/",
   "display": "standalone",
   "orientation": "portrait",
