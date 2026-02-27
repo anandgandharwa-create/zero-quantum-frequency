@@ -797,21 +797,30 @@ function openPrashn(){
 window.open("prashn.html","_self");
 }
 </script>
-  <script>
+<script>
 document.addEventListener('click', function(e) {
+
   let link = e.target.closest('a');
   if (!link) return;
 
   let url = link.getAttribute('href');
+  if (!url) return;
 
-  // internal links ignore
-  if (!url || url.startsWith('#') || url.startsWith('/') || url.startsWith('mailto:')) return;
+  // Allow email links (Gmail / mail apps)
+  if (url.startsWith('mailto:')) {
+    window.location.href = url;
+    return;
+  }
 
-  // external links open in browser
+  // internal pages ignore
+  if (url.startsWith('#') || url.startsWith('/')) return;
+
+  // open external websites in browser
   if (url.startsWith('http')) {
     e.preventDefault();
     window.open(url, '_blank');
   }
+
 });
 </script>
 </body>
