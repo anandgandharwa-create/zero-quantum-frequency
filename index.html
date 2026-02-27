@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -796,6 +796,23 @@ if ('serviceWorker' in navigator) {
 function openPrashn(){
 window.open("prashn.html","_self");
 }
+</script>
+  <script>
+document.addEventListener('click', function(e) {
+  let link = e.target.closest('a');
+  if (!link) return;
+
+  let url = link.getAttribute('href');
+
+  // internal links ignore
+  if (!url || url.startsWith('#') || url.startsWith('/') || url.startsWith('mailto:')) return;
+
+  // external links open in browser
+  if (url.startsWith('http')) {
+    e.preventDefault();
+    window.open(url, '_blank');
+  }
+});
 </script>
 </body>
 </html>
