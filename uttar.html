@@ -65,13 +65,24 @@ body{
   color:#cfd9ff;
   margin-top:25px;
 }
-
+.backTop{
+position:fixed;
+top:15px;
+left:15px;
+background:rgba(255,255,255,0.12);
+color:#fff;
+padding:8px 14px;
+border-radius:10px;
+font-size:14px;
+cursor:pointer;
+z-index:9999;
+}
 </style>
 </head>
 
 <body>
-
-<div class="header">🕉 आत्मसंवाद - आपके उत्तर</div>
+<div class="backTop" onclick="goBack()">← Back</div>
+<div class="header">आत्मसंवाद - आपके उत्तर</div>
 
 <div class="sub">
 हर सप्ताह चुने गए प्रश्नों के उत्तर यहाँ प्रकाशित किए जाते हैं।
@@ -120,6 +131,14 @@ body{
 </div>
 
 </div>
-
+<script>
+function goBack(){
+  if (window.history.length > 1){
+    window.history.back();
+  }else{
+    window.location.href = "index.html";
+  }
+}
+</script>
 </body>
 </html>
