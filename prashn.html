@@ -46,17 +46,24 @@ max-width:600px;
 margin-left:auto;
 margin-right:auto;
 }
-.backTop{
-position:fixed;
-top:15px;
-left:15px;
-background:rgba(255,255,255,0.12);
-color:#fff;
-padding:8px 14px;
-border-radius:10px;
-font-size:14px;
+/* ===== Universal App Back Button ===== */
+.appBack{
+display:block;
+width:max-content;
+margin:14px 0 14px 14px;
+text-align:left;
+
+background:#4b2a73;
+color:#ffffff;
+padding:9px 16px;
+border-radius:12px;
+font-size:15px;
 cursor:pointer;
-z-index:999;
+box-shadow:0 2px 8px rgba(0,0,0,0.35);
+}
+
+.appBack:active{
+transform:scale(0.96);
 }
 </style>
 </head>
