@@ -50,7 +50,9 @@ self.addEventListener("fetch", event => {
       // नहीं मिला → net से लो और cache में save भी करो
       return fetch(event.request).then(networkResponse => {
         return caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, networkResponse.clone());
+     if (event.request.method === "GET" && networkResponse.status === 200) {
+  cache.put(event.request, networkResponse.clone());
+}
           return networkResponse;
         });
       });
