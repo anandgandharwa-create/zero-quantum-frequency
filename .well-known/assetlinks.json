@@ -1,0 +1,11 @@
+[
+ {
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+   "namespace": "android_app",
+   "package_name": "com.niotron.anandgandharwa.MindOS",
+   "sha256_cert_fingerprints":
+   ["D6:5D:82:B0:37:24:DD:82:72:8F:84:10:6F:D9:0D:23:88:93:67:20:7B:DF:60:DC:98:AB:4C:88:B7:D7:56:4F"]
+  }
+ }
+]
