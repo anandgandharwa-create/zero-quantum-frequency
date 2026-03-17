@@ -3,37 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Zero Quantum Frequency</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Zero Quantum Frequency™</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#4b2a73">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <style>
-body{
+html, body{
 margin:0;
+padding:0;
+max-width:100%;
+overflow-x:hidden;
+}
+
+body{
 font-family:system-ui;
 background:#071826;
 color:#f1e2a6;
 text-align:center;
 }
 header{
+position:sticky;
+top:0;
+width:100%;
+text-align:center;
+
 background:linear-gradient(90deg,#5b2c83,#402060);
-padding:18px;
+padding:18px 10px;
+
 font-size:22px;
 font-weight:bold;
-color:white;
-}
+color:#ffffff;
 
+z-index:1000;
+box-shadow:0 4px 20px rgba(0,0,0,0.4);
+}
 .container{
-padding:20px;
+padding:25px 20px;
 max-width:420px;
 margin:auto;
 min-height:100vh;
-
+position:relative;
 display:flex;
 flex-direction:column;
-align-items:center;   /* बाकी content center रहेगा */
+align-items:center;
+box-sizing:border-box;
 }
-
 .longtext{
 color:#ffffff;
 line-height:1.9;
@@ -66,32 +83,11 @@ text-decoration:none;
 font-size:20px;
 box-shadow:0 0 18px rgba(255,215,0,0.2);
 }
-
 .btn:hover{
 background:#121212;
 }
-
 /* ===== Universal App Back Button ===== */
-/* ===== Universal App Back Button ===== */
-/* ===== Universal App Back Button ===== */
-.appBack{
-display:block;
-width:max-content;
-margin:14px 0 14px 14px;
-text-align:left;
 
-background:#4b2a73;
-color:#ffffff;
-padding:9px 16px;
-border-radius:12px;
-font-size:15px;
-cursor:pointer;
-box-shadow:0 2px 8px rgba(0,0,0,0.35);
-}
-
-.appBack:active{
-transform:scale(0.96);
-}
 .page{display:none;}
 .active{display:block;}
 
@@ -436,34 +432,529 @@ font-weight:700;
 color:#ffd36b;
 margin-bottom:16px;
 }
+ /* ===== Modern Home UI ===== */
+
+.homeTop{
+width:100%;
+background:linear-gradient(145deg,#1b2c3a,#0b1a26);
+border-radius:22px;
+padding:24px 18px;
+margin:0 auto 20px auto;
+box-sizing:border-box;
+
+border:1px solid rgba(255,255,255,0.05);
+box-shadow:0 0 35px rgba(0,120,255,0.15);
+text-align:center;
+}
+
+.welcome{
+font-size:14px;
+color:#a7c4d6;
+}
+
+.appTitle{
+font-size:26px;
+font-weight:700;
+margin-top:6px;
+color:#f6d97a;
+
+text-shadow:
+0 0 3px rgba(255,215,120,0.25);
+}
+.tagline{
+margin-top:10px;
+font-size:14px;
+color:#9bb8c9;
+}
+/* DAILY CARD */
+
+.dailyCard{
+background:linear-gradient(145deg,#132532,#08131c);
+border-radius:20px;
+padding:20px;
+margin-bottom:22px;
+
+box-shadow:0 8px 25px rgba(0,0,0,0.6);
+border:1px solid rgba(255,255,255,0.05);
+text-align:center;
+}
+
+.dailyTitle{
+font-size:15px;
+color:#ffd700;
+margin-bottom:10px;
+}
+
+.dailyText{
+font-size:15px;
+line-height:1.5;
+color:#d5e6f2;
+margin-bottom:14px;
+}
+
+.dailyBtn{
+display:inline-block;
+background:#ffd700;
+color:#000;
+padding:8px 16px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+cursor:pointer;
+}
+/* MENU GRID */
+
+.menuGrid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+width:100%;
+max-width:420px;
+margin-top:10px;
+}
+
+.menuCard{
+background:linear-gradient(145deg,#132532,#0a1823);
+border-radius:20px;
+padding:24px 12px;
+font-size:16px;
+color:#fff;
+cursor:pointer;
+transition:0.25s;
+font-weight:600;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.6),
+inset 0 0 10px rgba(255,255,255,0.03);
+
+text-align:center;
+}
+
+/* Hover */
+.menuCard:hover{
+transform:translateY(-4px);
+box-shadow:0 12px 28px rgba(0,0,0,0.7);
+}
+
+/* ⭐ About page cards yellow */
+.aboutTopMenu .menuCard{
+background:linear-gradient(145deg,#fff7a8,#ffd84d);
+color:#000;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.5),
+0 0 18px rgba(255,215,0,0.35);
+}
+
+/* hover yellow cards */
+.aboutTopMenu .menuCard:hover{
+transform:translateY(-4px);
+box-shadow:
+0 14px 28px rgba(0,0,0,0.6),
+0 0 22px rgba(255,215,0,0.5);
+}
+
+.menuIcon{
+font-size:30px;
+margin-bottom:8px;
+display:block;
+}
+/* HIGHLIGHT CARD */
+
+.highlight{
+border:1px solid rgba(255,215,0,0.5);
+box-shadow:0 0 25px rgba(255,215,0,0.15);
+}
+/* SMALL CARDS */
+.small{
+font-size:14px;
+padding:20px 10px;
+}
+/* FOOTER */
+
+.footer{
+margin-top:30px;
+font-size:12px;
+color:#6f8a9a;
+text-align:center;
+}
+ /* ABOUT PAGE TOP BUTTONS */
+
+.aboutTopMenu{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+margin-bottom:26px;
+width:100%;
+max-width:420px;
+}
+ /* Ask Question Button */
+
+.askButton{
+display:inline-block;
+background:linear-gradient(45deg,#6b2cff,#8b5cf6);
+color:white;
+padding:12px 22px;
+border-radius:14px;
+text-decoration:none;
+font-size:17px;
+box-shadow:0 0 18px rgba(140,90,255,0.45);
+transition:0.25s;
+}
+
+.askButton:hover{
+transform:scale(1.05);
+}
+/* Answer Button */
+
+.answerButton{
+display:inline-block;
+margin-top:18px;
+background:#f59e0b;
+color:black;
+padding:14px 22px;
+border-radius:14px;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+box-shadow:0 0 20px rgba(255,200,80,0.35);
+}
+/* Divine Cards Grid */
+
+.divineGrid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+margin-top:35px;
+max-width:380px;
+width:100%;
+}
+
+.divineCard{
+background:linear-gradient(145deg,#e8ffe8,#c8f7c8);
+
+border-radius:18px;
+padding:22px;
+text-align:center;
+cursor:pointer;
+
+box-shadow:0 8px 22px rgba(0,0,0,0.35);
+
+transition:0.25s;
+}
+
+.divineCard:hover{
+transform:translateY(-4px);
+box-shadow:0 14px 28px rgba(0,0,0,0.65);
+}
+.divineCard:hover{
+transform:translateY(-4px);
+}
+
+.divineTitle{
+color:#2b7a2b;
+font-weight:600;
+}
+
+.divineIcon{
+filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+/* Card Text */
+.divineText{
+font-size:14px;
+color:#d6e6f2;
+line-height:1.6;
+}
+ /* Krishna Oracle Card */
+
+.oracleCard{
+background:linear-gradient(145deg,#132532,#08131c);
+border-radius:20px;
+padding:26px;
+margin-top:25px;
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+max-width:380px;
+}
+
+.oracleIcon{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.oracleTitle{
+font-size:20px;
+font-weight:600;
+color:#ffd700;
+margin-bottom:8px;
+}
+
+.oracleText{
+font-size:15px;
+color:#d6e6f2;
+margin-bottom:18px;
+line-height:1.6;
+}
+
+.oracleBtn{
+background:linear-gradient(45deg,#ffd700,#ffb300);
+border:none;
+padding:12px 22px;
+border-radius:16px;
+font-size:16px;
+cursor:pointer;
+font-weight:600;
+}
+
+.oracleResult{
+margin-top:18px;
+font-size:16px;
+color:#ffffff;
+line-height:1.7;
+}
+ /* Horizontal Divine Menu */
+
+.divineTopScroll{
+
+display:flex;
+gap:14px;
+overflow-x:auto;
+padding:12px 5px 18px 5px;
+
+scrollbar-width:none;
+}
+
+.divineTopScroll::-webkit-scrollbar{
+display:none;
+}
+
+.divineTopScroll .divineCard{
+
+background:radial-gradient(circle at 30% 30%,
+#fff7a8 0%,
+#ffe45c 45%,
+#ffd633 100%);
+
+border-radius:18px;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.35),
+inset 0 0 18px rgba(255,255,255,0.35);
+
+}
+.divineTopScroll .divineIcon{
+font-size:26px;
+margin-bottom:6px;
+}
+
+.divineTopScroll .divineTitle{
+color:#000;
+font-weight:700;
+text-shadow:0 1px 2px rgba(255,255,255,0.4);
+}
+ /* Sticky divine menu */
+
+/* Sticky menu */
+
+.divineMenuSticky{
+
+position:sticky;
+top:60px;
+z-index:500;
+
+background:#071826;
+
+padding:18px 0;
+
+}
+
+/* Horizontal slider */
+
+.divineTopScroll{
+display:flex;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+gap:12px;
+padding:10px 18px;
+scroll-behavior:smooth;
+
+max-width:100%;
+box-sizing:border-box;
+}
+.divineTopScroll::-webkit-scrollbar{
+display:none;
+}
+
+.bigCard{
+flex:0 0 85%;
+max-width:85%;
+
+margin-right:10px;
+
+padding:50px 25px;
+box-sizing:border-box;
+
+scroll-snap-align:center;
+}
+/* Icon */
+
+.bigCard .divineIcon{
+
+font-size:50px;
+
+margin-bottom:14px;
+
+}
+
+/* Title */
+
+.bigCard .divineTitle{
+font-size:18px;
+color:#f3d77a;
+}
+/* Hide swipe dots */
+.divineDots,
+.scrollDots,
+.carouselDots,
+.swipeDots {
+display:none !important;
+}
+#titleBar{
+position:sticky;
+top:0;
+width:100%;
+
+background:linear-gradient(90deg,#5b2c83,#402060);
+padding:18px 10px;
+
+font-size:22px;
+font-weight:bold;
+color:#fff;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+z-index:1000;
+}
+
+#backBtn{
+position:absolute;
+left:15px;
+font-size:22px;
+cursor:pointer;
+}
+ #backBtn{
+display:none;
+}
+ .divineTopScroll .divineCard .divineTitle{
+color:#000 !important;
+font-weight:700;
+}
+ .divineInstruction{
+font-size:13px;
+line-height:1.5;
+opacity:0.85;
+margin-top:10px;
+color:#082567;
+}
 </style>
 </head>
 
 <body>
-<header id="title">Home</header>
+<header id="titleBar">
+<span id="backBtn" onclick="goHome()">←</span>
+<span id="title">Home</span>
+</header>
 
 <!-- HOME -->
 <div id="home" class="container page active">
-<h1>Zero Quantum<br>Frequency™</h1>
-<div class="subtitle">- RETURN TO YOUR ORIGINAL STATE -</div>
 
-<a class="btn" onclick="openPage('about','About Us')">About Us</a>
-<a class="btn" onclick="openPage('books','Books')">Books</a>
-<a class="btn" onclick="openPage('courses','Courses')">Divine Access</a>
-<a class="btn" onclick="openPage('krishna','Krishna Code')">Krishna Code</a>
-<a class="btn" href="mindos.html" target="_blank">
-🧠 Mind OS
-</a>
-<a class="btn" onclick="openPage('contact','Contact')">Contact</a>
+<div class="homeTop">
+
+<div class="welcome">Welcome</div>
+
+<div class="appTitle">
+Zero Quantum Frequency™
+</div>
+
+<div class="tagline">
+Return to your original state
+</div>
+
+</div>
+
+
+<!-- DAILY KRISHNA MESSAGE -->
+
+<div class="dailyCard">
+
+<div class="dailyTitle">🕉 Krishna Today Says</div>
+
+<div class="dailyText">
+"जो स्वयं को जान लेता है  
+उसे संसार पर विजय की आवश्यकता नहीं रहती।"
+</div>
+
+<div class="dailyBtn">
+Ask Krishna
+</div>
+
+</div>
+
+
+<!-- MAIN MENU -->
+
+<div class="menuGrid">
+
+<div class="menuCard highlight" onclick="openPage('courses','Divine Access')">
+<span class="menuIcon">✨</span>
+Divine Access
+</div>
+
+<div class="menuCard" onclick="openPage('krishna','Krishna Code')">
+<span class="menuIcon">🕉</span>
+Krishna Code
+</div>
+
+<div class="menuCard" onclick="location.href='mindos.html'">
+<span class="menuIcon">🧠</span>
+Mind OS
+</div>
+
+<div class="menuCard small" onclick="openPage('about','About Us')">
+<span class="menuIcon">🧭</span>
+About
+</div>
+
+</div>
 
 <div class="footer">
 Zero Quantum Frequency™ © Gandharwa Anand
 </div>
+
+</div>
+<!-- ABOUT -->
+
+<div id="about" class="container page">
+
+<!-- TOP BUTTONS -->
+
+<div class="aboutTopMenu">
+
+<div class="menuCard small" onclick="openPage('books','Books')">
+<span class="menuIcon">📚</span>
+Books
 </div>
 
-<!-- ABOUT -->
-<div id="about" class="container page">
-<div class="appBack" onclick="goHome()">← Back</div>
+<div class="menuCard small" onclick="openPage('contact','Contact')">
+<span class="menuIcon">📩</span>
+Contact
+</div>
+
+</div>
+
 
 <p class="big">
 जब आप Zero Quantum Frequency पर स्थिर होते हैं, तो अनावश्यक विचार शांत होकर लक्ष्य की तरंगें जागृत होती हैं।
@@ -473,7 +964,8 @@ Zero Quantum Frequency™ © Gandharwa Anand
 Zero Quantum Frequency reveals the space within where mental weight dissolves and life flows peacefully.
 </p>
 
-  <div class="authorBox">
+
+<div class="authorBox">
 
 <div class="authorTitle">लेखक का परिचय</div>
 
@@ -486,17 +978,19 @@ Zero Quantum Frequency reveals the space within where mental weight dissolves an
 </p>
 
 <p>
-उन्होंने अनेक ग्रंथों की रचना की है जिनमें ‘सारथी का संदेश’, 'सृजन-माला' , ‘नचिकेता का तीसरा वर’, ‘सनातन के सात अध्याय’, ‘भारत माता’, 'Zero Quantum Frequency', 'करना कुछ भी नहीं'  और ‘The Burning Life’ प्रमुख हैं। उनके लेखन में वेदांत दर्शन, आत्मविकास और आधुनिक जीवन के बीच एक अद्भुत सेतु दिखाई देता है।
+उन्होंने अनेक ग्रंथों की रचना की है जिनमें ‘सारथी का संदेश’, 'सृजन-माला' , ‘नचिकेता का तीसरा वर’, ‘सनातन के सात अध्याय’, ‘भारत माता’, 'Zero Quantum Frequency', 'करना कुछ भी नहीं' और ‘The Burning Life’ प्रमुख हैं।
 </p>
 
 <p>
 उनकी पुस्तक “The Burning Life” जलवायु परिवर्तन और मानव चेतना के संबंध को प्रस्तुत करती है, जबकि “सारथी का संदेश” जीवन संघर्षों में आध्यात्मिक मार्गदर्शन प्रदान करती है।
 </p>
+
 <p>
-उनकी पुस्तक "करना कुछ भी नहीं" साधना का सरल मार्ग बताती है- अहंकार शांत कर साक्षीभाव में स्थित होकर स्वाभाविक शांति और आत्मबोध प्राप्त करना।
+उनकी पुस्तक "करना कुछ भी नहीं" साधना का सरल मार्ग बताती है - अहंकार शांत कर साक्षीभाव में स्थित होकर स्वाभाविक शांति और आत्मबोध प्राप्त करना।
 </p>
+
 <p>
-वे मानते हैं कि सच्ची सफलता बाहरी उपलब्धियों से नहीं, बल्कि आंतरिक संतुलन से आती है। ध्यान, आत्म-चिंतन और मौन साधना उनके जीवन का महत्वपूर्ण भाग है।
+वे मानते हैं कि सच्ची सफलता बाहरी उपलब्धियों से नहीं, बल्कि आंतरिक संतुलन से आती है।
 </p>
 
 <div class="authorQuote">
@@ -518,156 +1012,174 @@ SRINAGAR, J & K
 <img src="MDH.jpg">
 
 </div>
-</div>
+
 </div>
 
-<!-- COURSES -->
+</div>
+
+ <!-- DIVINE ACCESS -->
+
 <div id="courses" class="container page">
 
-<div class="appBack" onclick="goHome()">← Back</div>
+<!-- Sticky Menu -->
+<div class="divineMenuSticky">
 
-<div class="comingSoon">COMING SOON</div>
+<div class="divineTopScroll">
 
-<!-- QUESTION BUTTON (TOP) -->
-<div style="text-align:center; margin:25px 0;">
-<a onclick="openPrashn()" style="
-display:inline-block;
-background:#6b2cff;
-color:white;
-padding:12px 20px;
-border-radius:12px;
-text-decoration:none;
-font-size:17px;
-cursor:pointer;">
-कोई प्रश्न है? यहाँ लिखें
-</a>
+<div class="divineCard bigCard" onclick="window.open('maun-chakra.html','_self')">
+<div class="divineIcon">🌀</div>
+<div class="divineTitle">Maun Chakra</div>
+
+<div class="divineInstruction">
+मन को शांत करने का पहला कदम<br>
+भीतर के मौन से जुड़ने के लिए स्पिन करें
 </div>
 
-<h2>ZQ Frequency Starter</h2>
+</div>
+<div class="divineCard bigCard" onclick="window.open('antar-darpan.html','_self')">
+<div class="divineIcon">🔮</div>
+<div class="divineTitle">Antardarpan</div>
 
-<p class="courseTagline">
+<div class="divineInstruction">
+स्वयं को देखने का आंतरिक दर्पण<br>
+अपने विचारों और भावनाओं को पहचानें
+</div>
+
+</div>
+<div class="divineCard bigCard">
+<div class="divineIcon">🪔</div>
+<div class="divineTitle">Krishna Guidance</div>
+
+<div class="divineInstruction">
+श्रीकृष्ण के ज्ञान से मार्गदर्शन पाएँ<br>
+जब मन उलझन में हो तब यहाँ आएँ
+</div>
+
+</div>
+
+<div class="divineCard bigCard">
+
+<div class="divineIcon">🕉</div>
+<div class="divineTitle">Daily Sadhana</div>
+
+<div class="divineInstruction">
+प्रतिदिन की छोटी साधना<br>
+मन, ऊर्जा और चेतना को संतुलित करें
+</div>
+
+</div>
+</div>
+</div>
+
+ <p class="courseTagline">
 मन की शांति का पहला कदम
 </p>
 
 <p class="courseDesc">
-यह उन्नत कोर्स आपकी चेतना और ऊर्जा को उच्च आवृत्ति पर ले जाकर स्पष्टता और आकर्षण-शक्ति को सक्रिय करता है।
+यह साधना-आधारित मार्ग आपकी चेतना और ऊर्जा को उच्च आवृत्ति पर ले जाकर
+स्पष्टता, संतुलन और आंतरिक आकर्षण-शक्ति को सक्रिय करता है।
 </p>
+
 
 <p class="courseHighlight">
 "आप एक ऐसी जेल में हैं जिसमें ना सलाखें हैं, ना दीवारें और ना ताला"
 </p>
-
 <div class="coursePromo">
+<div class="coursePromoTitle">Divine Access</div>
 
-<div class="coursePromoTitle">ZQ Frequency Starter</div>
-
-<p>आज का मनुष्य बाहर से सफल दिखता है, पर भीतर से अशांत है। विचारों का शोर, अपेक्षाओं का दबाव और निरंतर भागदौड़ उसे ऐसी अदृश्य जेल में कैद कर देती है, जिसमें ना सलाखें हैं, ना दीवारें और ना ताला - फिर भी वह स्वतंत्र नहीं है।</p>
-
-<p>ZQ Frequency Starter उसी आंतरिक बंधन से मुक्ति का पहला कदम है। यह केवल एक कोर्स नहीं, बल्कि चेतना की दिशा बदलने की प्रक्रिया है। इस विशेष साधना-आधारित कार्यक्रम में आपको 21 गहन वीडियो और 21 मार्गदर्शित ऑडियो सत्र मिलेंगे, जो आपके मन को स्थिर करने, ऊर्जा को संतुलित करने और साक्षीभाव को जागृत करने में सहायक होंगे।</p>
-
-<p>हर वीडियो आपको धीरे-धीरे उस बिंदु तक ले जाएगा जहाँ विचारों का भार हल्का होने लगता है। हर ऑडियो सत्र आपके भीतर की मौन शक्ति को सक्रिय करेगा। यह कोर्स किसी जटिल दर्शन या कठिन साधना का आग्रह नहीं करता; यह आपको सहज, सरल और व्यावहारिक तरीके से भीतर लौटना सिखाता है।</p>
-
-<p>इसके साथ आपको मिलेगा एक डिजिटल ग्रैटिट्यूड जर्नल, जो आपके दैनिक चिंतन को नई दिशा देगा। कृतज्ञता केवल एक भावना नहीं, बल्कि चेतना को उच्च आवृत्ति पर ले जाने का माध्यम है। जब आप नियमित रूप से अपने अनुभवों को लिखते हैं, तो मन नकारात्मकता से हटकर संतुलन की ओर बढ़ता है।</p>
-
-<p>यह कोर्स उन लोगों के लिए है जो केवल ज्ञान नहीं, अनुभव चाहते हैं। जो केवल प्रेरणा नहीं, आंतरिक परिवर्तन चाहते हैं। जो बाहरी उपलब्धियों से आगे बढ़कर आत्मिक स्थिरता को समझना चाहते हैं।</p>
-
-<p>यदि आप जीवन की भागदौड़ से थक चुके हैं, यदि आप मन के शोर से ऊपर उठकर मौन की शक्ति को जानना चाहते हैं, तो यह कोर्स आपके लिए है।</p>
+ <p>
+संदेह को भूखा रखो, निर्णय को खिलाओ, अनुशासन को भोजन दो।
+शांति को गहराई से समझोगे तभी ही शांत रह पाओगे;
+किसी अंधविश्वास से नहीं बल्कि जागरूकता से समझोगे। 
+इसे हमारे ऐप के माध्यम से समझने का प्रयास करें..
+</p>
+<p>
+हर अभ्यास आपको धीरे-धीरे उस बिंदु तक ले जाएगा
+जहाँ विचारों का भार हल्का होने लगता है
+और भीतर की मौन शक्ति सक्रिय होती है।
+</p>
 
 <div class="courseClosing">
-ZQ Frequency Starter - क्योंकि सच्ची समृद्धि भीतर की शांति से प्रारंभ होती है।
+Divine Access - क्योंकि सच्ची समृद्धि भीतर की शांति से प्रारंभ होती है।
+</div>
+<!-- KRISHNA ORACLE -->
+
+<div class="oracleCard">
+
+<div class="oracleIcon">🕉</div>
+
+<div class="oracleTitle">
+Krishna Oracle
 </div>
 
-<!-- QUESTION BUTTON (BOTTOM) -->
-<div style="text-align:center; margin-top:50px;">
+<div class="oracleText">
+अपने मन में एक प्रश्न रखें और कृष्ण से मार्गदर्शन प्राप्त करें।
+</div>
 
-<h3 style="color:#c084fc;">साधना में प्रश्न आना प्रगति का संकेत है</h3>
+<button class="oracleBtn" onclick="krishnaOracle()">
+कृष्ण से उत्तर प्राप्त करें
+</button>
 
-<p style="max-width:600px; margin:auto; line-height:1.6;">
-यदि आपके भीतर कोई उलझन है, आप यहाँ लिख सकते हैं।
-</p>
-<!-- UTTAR BUTTON -->
-<div style="text-align:center; margin-top:30px;">
+<div id="oracleResult" class="oracleResult"></div>
+
+</div>
+</div>
+ 
+<!-- ASK AGAIN BUTTON -->
+<div style="text-align:center;margin-top:30px;">
+<a onclick="openPrashn()" class="askButton">
+अपने भीतर के प्रश्न पूछें
+</a>
+</div>
+
+<!-- ANSWER SECTION -->
+<div style="text-align:center;margin-top:50px;">
 
 <h3 style="color:#ffd166;">क्या आपने पहले प्रश्न भेजा था?</h3>
 
-<p style="max-width:600px; margin:auto; line-height:1.6;">
+<p style="max-width:380px;margin:auto;line-height:1.7;">
 आपके द्वारा भेजे गए चुने हुए प्रश्नों के उत्तर यहाँ प्रकाशित किए जाते हैं।
 अपना Q-ID देखकर उत्तर पढ़ें।
 </p>
 
-<a href="uttar.html" style="
-display:inline-block;
-margin-top:18px;
-background:#f59e0b;
-color:black;
-padding:14px 22px;
-border-radius:12px;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;">
+<a href="uttar.html" class="answerButton">
 📜 अपने उत्तर देखें
 </a>
 
 </div>
-<a onclick="openPrashn()" style="
-display:inline-block;
-margin-top:20px;
-background:#6b2cff;
-color:white;
-padding:14px 22px;
-border-radius:12px;
-text-decoration:none;
-font-size:18px;
-cursor:pointer;">
-अपने भीतर के प्रश्न पूछें
-</a>
 
-</div>
-
-</div>
-</div>
+</div>  <!-- courses container close -->
 
 <!-- KRISHNA -->
 <div id="krishna" class="container page">
-<div class="appBack" onclick="goHome()">← Back</div>
-
 <h2>Decode The Secrets of Wealth & Wisdom</h2>
 
 <p class="quote whiteText">
 ✨ Return to Zero - Where Silence Speaks ✨
 </p>
-  <h2>गीता ज्ञान</h2>
-
+ <h2>गीता ज्ञान</h2>
 <p class="gitaShlok">
-न हि ज्ञानेन सदृशं पवित्रमिह विद्यते।
-तत्स्वयं योगसंसिद्धः कालेनात्मनि विन्दति॥ (गीता 4/38)
+त्यक्त्वा कर्मफलासङ्गं नित्यतृप्तो निराश्रयः।
+कर्मण्यभिप्रवृत्तोऽपि नैव किञ्चित्करोति सः॥ 4.20॥
 </p>
 
 <p class="quote">
-इस संसार में दिव्यज्ञान के समान कुछ भी शुद्ध नहीं है।
-इस ज्ञान को योग के द्वारा मानव स्वयं अपने हृदय में पा लेता है।
+जो व्यक्ति कर्म के फल की आसक्ति छोड़कर भीतर से सदा संतुष्ट और किसी बाहरी सहारे पर 
+निर्भर नहीं रहता, वह कर्म करते हुए भी वास्तव में कर्म में बँधता नहीं है।
 </p>
 
 <div class="divider"></div>
 
 <div class="longtext">
 
-  <p>यह श्लोक भगवान श्रीकृष्ण द्वारा अर्जुन को दिया गया अत्यन्त गूढ़ आध्यात्मिक संदेश है। इसमें “ज्ञान” को संसार की सबसे महान और सबसे पवित्र शक्ति बताया गया है। सामान्यतः हम पवित्रता को बाहरी वस्तुओं, तीर्थ, व्रत, स्नान या पूजा-पाठ से जोड़ते हैं; परन्तु श्रीकृष्ण यहाँ बताते हैं कि वास्तविक पवित्रता बाहरी कर्मों से नहीं, बल्कि अन्तःकरण की जागृति से आती है और उस जागृति का नाम है ज्ञान।</p>
+<p>गीता के इस श्लोक में कर्मयोग की अत्यन्त सूक्ष्म और गूढ़ स्थिति का वर्णन है। श्रीकृष्ण कहते हैं कि जो व्यक्ति कर्म के फल में आसक्ति का त्याग कर देता है, वह भीतर से नित्य तृप्त और किसी बाहरी आधार पर निर्भर नहीं रहता। उसकी संतुष्टि किसी उपलब्धि, प्रशंसा या परिणाम से नहीं, बल्कि अपने आत्मस्वरूप से उत्पन्न होती है।</p>
 
-<p>यहाँ “ज्ञान” का अर्थ केवल पुस्तकीय जानकारी, शास्त्रों का रटन्त या बुद्धि का संग्रह नहीं है। यह आत्मज्ञान है - “मैं शरीर नहीं, मैं चेतना हूँ”, “मैं परिस्थितियों का दास नहीं, मैं साक्षी हूँ”, “मेरा वास्तविक स्वरूप शुद्ध, शान्त और अविनाशी है।” जब मनुष्य यह अनुभव कर लेता है, तब उसके भीतर की अशुद्धियाँ - भय, द्वेष, क्रोध, ईर्ष्या, मोह - स्वतः नष्ट होने लगती हैं। इसलिए श्रीकृष्ण कहते हैं कि ज्ञान से अधिक पवित्र करने वाला इस संसार में कुछ भी नहीं।</p>
+<p>ऐसा पुरुष कर्म करता हुआ भी वास्तव में कर्म में बँधता नहीं है। क्योंकि उसके कर्म के पीछे स्वार्थ, अहंकार या फल की आकांक्षा नहीं होती। वह केवल कर्तव्यबुद्धि और व्यापक कल्याण की भावना से कर्म करता है। इस कारण उसके कर्म उसे बंधन में नहीं डालते।</p>
 
-<p>अब प्रश्न उठता है - यह ज्ञान मिलता कैसे है? क्या इसे कोई गुरु दे सकता है? क्या इसे खरीदा जा सकता है? क्या इसे केवल पढ़कर पाया जा सकता है? श्लोक का दूसरा भाग इसका उत्तर देता है - “तत्स्वयं योगसंसिद्धः कालेनात्मनि विन्दति” अर्थात् योग में सिद्ध हुआ मनुष्य, समय के साथ इस ज्ञान को स्वयं अपने भीतर पा लेता है।</p>
-
-<p>यहाँ “योग” का अर्थ केवल आसन-प्राणायाम नहीं है। योग का वास्तविक अर्थ है - चित्त का संयम और भीतर की ओर यात्रा। जब मनुष्य ध्यान, जागरूकता, निरन्तर आत्मचिन्तन और निष्काम कर्म के द्वारा अपने मन को शान्त करता है, तब धीरे-धीरे उसका मन दर्पण की तरह निर्मल होने लगता है। जैसे साफ दर्पण में चेहरा स्पष्ट दिखता है, वैसे ही शुद्ध मन में आत्मा का सत्य प्रकट होने लगता है।</p>
-
-<p>श्रीकृष्ण यह भी कहते हैं कि यह ज्ञान अचानक नहीं मिलता - “कालेन” - समय के साथ मिलता है। आध्यात्मिक ज्ञान कोई सूचना नहीं, बल्कि परिपक्वता है। जैसे बीज को वृक्ष बनने में समय लगता है, वैसे ही साधना को अनुभव बनने में समय लगता है। साधक जब निराश हुए बिना निरन्तर अभ्यास करता रहता है, तब एक दिन उसे अनुभव होता है कि जिसे वह बाहर खोज रहा था, वह तो उसके भीतर ही था।</p>
-
-<p>इस श्लोक का एक और महत्वपूर्ण संकेत है - ज्ञान बाहर से दिया नहीं जाता, भीतर से प्रकट होता है। गुरु, शास्त्र और साधना केवल मार्ग दिखाते हैं; परन्तु सत्य का अनुभव स्वयं आत्मा में होता है। इसलिए श्रीकृष्ण कहते हैं - “आत्मनि विन्दति” - वह अपने ही भीतर उसे प्राप्त करता है।</p>
-
-<p>अतः इस श्लोक का सार यह है कि मनुष्य का वास्तविक शुद्धिकरण कर्मकाण्ड से नहीं, आत्मबोध से होता है। जब मनुष्य अपने वास्तविक स्वरूप को जान लेता है, तब उसका जीवन बदल जाता है। उसके लिए संसार बन्धन नहीं रहता, कर्म बोझ नहीं रहते, और परिस्थितियाँ दुःख का कारण नहीं बनतीं। वह बाहरी सफलता से नहीं, आन्तरिक शान्ति से जीने लगता है।</p>
+<p>यहाँ गीता यह स्पष्ट करती है कि समस्या कर्म में नहीं, बल्कि कर्म के फल के प्रति आसक्ति में है। जब मनुष्य फलासक्ति से मुक्त होकर कर्म करता है, तब वही कर्म योग बन जाता है। इस अवस्था में व्यक्ति बाह्य रूप से सक्रिय होते हुए भी भीतर से पूर्णतः मुक्त और निष्कर्म रहता है।</p>
 
 <p><strong>गीता का संदेश:</strong><br>
-अज्ञान का नाश केवल ज्ञान से होता है और यह ज्ञान योग, धैर्य और निरन्तर साधना से एक दिन हमारे ही हृदय में प्रकट हो जाता है।</p>
+जो व्यक्ति कर्म के फल की आसक्ति छोड़कर कर्तव्यभाव से कर्म करता है, वही कर्म करते हुए भी वास्तव में मुक्त रहता है।</p>
 <!-- Krishna YouTube Button -->
 <div style="text-align:center; margin-top:30px;">
 
@@ -693,7 +1205,6 @@ box-shadow:0 0 18px rgba(255,215,0,0.4);
 
 <!-- BOOKS -->
 <div id="books" class="container page">
-<div class="appBack" onclick="goHome()">← Back</div>
 
 <h2>📚 My Books</h2>
 
@@ -750,8 +1261,6 @@ box-shadow:0 0 18px rgba(255,215,0,0.4);
 
 <!-- CONTACT -->
 <div id="contact" class="container page contact">
-<div class="appBack" onclick="goHome()">← Back</div>
-  
 <div class="contact-group">
   
 <!-- Email -->
@@ -780,14 +1289,25 @@ box-shadow:0 0 18px rgba(255,215,0,0.4);
 </div>
 <script>
 function openPage(id,title){
+
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById(id).classList.add('active');
-document.getElementById('title').innerText = title;   // ⭐ यही fix है
+
+document.getElementById('title').innerText = title;
+
+/* Back arrow control */
+const backBtn = document.getElementById("backBtn");
+
+if(id === "home"){
+backBtn.style.display = "none";
+}else{
+backBtn.style.display = "block";
+}
+
 window.scrollTo(0,0);
 
 setTimeout(initGallery,300);
 }
-
 function goHome(){
 openPage('home','Home');
 }
@@ -841,7 +1361,31 @@ document.addEventListener('click', function(e) {
     window.location.href = url;
     return;
   }
+function krishnaOracle(){
 
+const messages = [
+
+"मन को स्थिर करो — उत्तर पहले से भीतर उपस्थित है।",
+
+"कर्म करो, फल की चिंता मत करो।",
+
+"जिसे तुम खोज रहे हो, वह तुम्हारे भीतर है।",
+
+"मौन में जाओ — वहीं सत्य स्पष्ट होता है।",
+
+"अहंकार छोड़ते ही मार्ग खुलने लगता है।",
+
+"जहाँ प्रेम है, वहीं कृष्ण का मार्ग है।",
+
+"चिंता छोड़ो — जीवन तुम्हें सही दिशा दे रहा है।"
+
+];
+
+const randomMessage = messages[Math.floor(Math.random()*messages.length)];
+
+document.getElementById("oracleResult").innerText = randomMessage;
+
+}
   // internal pages ignore
   if (url.startsWith('#') || url.startsWith('/')) return;
 
@@ -852,6 +1396,16 @@ document.addEventListener('click', function(e) {
   }
 
 });
+window.onload = function(){
+
+const activePage = document.querySelector('.page.active').id;
+const backBtn = document.getElementById("backBtn");
+
+if(activePage === "home"){
+backBtn.style.display = "none";
+}
+
+};
 </script>
 </body>
 </html>
