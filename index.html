@@ -1633,10 +1633,17 @@ if ('serviceWorker' in navigator) {
         if (newWorker.state === 'installed') {
 
           // अगर पुराना SW already चल रहा है
-          if (navigator.serviceWorker.controller) {
+         if (navigator.serviceWorker.controller) {
 
-            // ✅ AUTO RELOAD (सबसे जरूरी)
-            window.location.reload();
+    // 👇 यहीं डालो
+    document.getElementById("updatePopup").style.display = "block";
+
+    setInterval(() => {
+      document.getElementById("updatePopup").style.display = "block";
+    }, 15000);
+
+}
+
           }
         }
       };
@@ -1644,6 +1651,28 @@ if ('serviceWorker' in navigator) {
 
   });
 }
+  function updateApp(){
+  if (navigator.serviceWorker.controller) {
+    navigator.serviceWorker.controller.postMessage({action:'skipWaiting'});
+  }
+  location.reload();
+}
 </script>
+<div id="updatePopup" style="
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:#0b1d2a;
+color:#fff;
+padding:15px;
+border-radius:10px;
+display:none;
+z-index:9999;
+text-align:center;
+">
+🚀 New Update Available<br><br>
+<button onclick="updateApp()">Update Now</button>
+</div>
 </body>
 </html>
