@@ -1,4 +1,4 @@
-const CACHE_NAME = "zqf-v37";  // <-- हर update पर सिर्फ यही बदलना
+const CACHE_NAME = "zqf-v38";  // <-- हर update पर सिर्फ यही बदलना
 
 const urlsToCache = [
   "/zero-quantum-frequency/",
@@ -18,7 +18,6 @@ const urlsToCache = [
   "/zero-quantum-frequency/prashn.html",
   "/zero-quantum-frequency/uttar.html",
 ];
-
 
 // INSTALL
 self.addEventListener("install", event => {
@@ -46,25 +45,20 @@ self.addEventListener("activate", event => {
   self.clients.claim();
 });
 
-
 // FETCH (offline + auto update cache)
 self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-
-      // cache मिला → वही दिखाओ
-      if (response) return response;
-
-      // नहीं मिला → net से लो और cache में save भी करो
-      return fetch(event.request).then(networkResponse => {
+    fetch(event.request)
+      .then(networkResponse => {
+        // नया data cache में भी डाल दो
         return caches.open(CACHE_NAME).then(cache => {
-     if (event.request.method === "GET" && networkResponse.status === 200) {
-  cache.put(event.request, networkResponse.clone());
-}
+          cache.put(event.request, networkResponse.clone());
           return networkResponse;
         });
-      });
-
-    })
+      })
+      .catch(() => {
+        // net fail → cache से दिखाओ
+        return caches.match(event.request);
+      })
   );
 });
