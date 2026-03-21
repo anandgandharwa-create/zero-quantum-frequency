@@ -15,13 +15,20 @@ body{
 }
 
 .header{
-  background:#4b2a73;
-  padding:18px;
-  text-align:center;
-  font-size:22px;
-  font-weight:bold;
-}
+display:flex;
+align-items:center;
+justify-content:center; /* center title */
+position:relative;
 
+background:#4b2a73;
+padding:18px;
+font-size:22px;
+font-weight:bold;
+}
+.title{
+display:block;
+text-align:center;
+}
 .sub{
   text-align:center;
   padding:12px 20px;
@@ -75,17 +82,17 @@ border-radius:10px;
 font-size:14px;
 cursor:pointer;
 }
-  .backBtn{
+.backBtn{
 position:absolute;
-left:12px;
+left:15px;
 top:50%;
 transform:translateY(-50%);
 color:white;
 text-decoration:none;
-font-size:20px;
-}
-  .header{
-position:relative;
+font-size:22px;
+background:rgba(255,255,255,0.1);
+padding:4px 10px;
+border-radius:8px;
 }
 </style>
 </head>
@@ -93,8 +100,8 @@ position:relative;
 <body>
 
 <div class="header">
-<a href="index.html" class="backBtn">←</a>
-आत्मसंवाद - आपके उत्तर
+<a href="#" class="backBtn" onclick="history.back()">←</a>
+<span class="title">आत्मसंवाद - आपके उत्तर</span>
 </div>
   
 <div class="sub">
@@ -125,6 +132,8 @@ position:relative;
 <div class="card">
 <div class="qid">Q2</div>
 <div class="date">सप्ताह 1</div>
+
+कृष्ण भगवान के बचपन का नाम कान्हा था।
 
 आज एक प्रयोग करें:
 कुछ पाने के लिए नहीं,
