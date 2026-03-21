@@ -1,22 +1,25 @@
-const CACHE_NAME = "zqf-v54";  // <-- हर update पर सिर्फ यही बदलना
+const CACHE_NAME = "zqf-v56";  // <-- हर update पर सिर्फ यही बदलना
 
 const urlsToCache = [
   "/zero-quantum-frequency/",
   "/zero-quantum-frequency/index.html",
   "/zero-quantum-frequency/manifest.json",
-  "/zero-quantum-frequency/icon-192.png",
-  "/zero-quantum-frequency/icon-512.png",
+  "/zero-quantum-frequency/images/icon-192.png",
+  "/zero-quantum-frequency/images/icon-512.png",
 
   // 🔥 NEW PAGES
-  "/zero-quantum-frequency/maun-chakra.html",
-  "/zero-quantum-frequency/antar-darpan.html",
-  "/zero-quantum-frequency/gyan-game.html",
-  "/zero-quantum-frequency/mind-witness-quiz.html",
+  "/zero-quantum-frequency/pages/maun-chakra.html",
+  "/zero-quantum-frequency/pages/antar-darpan.html",
+  "/zero-quantum-frequency/pages/gyan-game.html",
+  "/zero-quantum-frequency/pages/mind-witness-quiz.html",
 
   // existing
-  "/zero-quantum-frequency/mindos.html",
-  "/zero-quantum-frequency/prashn.html",
-  "/zero-quantum-frequency/uttar.html",
+  "/zero-quantum-frequency/pages/mindos.html",
+  "/zero-quantum-frequency/pages/prashn.html",
+  "/zero-quantum-frequency/pages/uttar.html",
+  "/zero-quantum-frequency/pages/meditation.html",
+  "/zero-quantum-frequency/pages/mindgym.html",
+   "/zero-quantum-frequency/pages/privacy.html",
 ];
 
 // INSTALL
