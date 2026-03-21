@@ -529,13 +529,6 @@ inset 0 0 10px rgba(255,255,255,0.03);
 
 text-align:center;
 }
-
-/* Hover */
-.menuCard:hover{
-transform:translateY(-4px);
-box-shadow:0 12px 28px rgba(0,0,0,0.7);
-}
-
 /* ⭐ About page cards yellow */
 .aboutTopMenu .menuCard{
 background:linear-gradient(145deg,#fff7a8,#ffd84d);
@@ -842,11 +835,18 @@ z-index:1000;
 #backBtn{
 position:absolute;
 left:15px;
+top:50%;
+transform:translateY(-50%);
+
 font-size:22px;
+color:white;
 cursor:pointer;
-}
- #backBtn{
-display:none;
+
+background:rgba(255,255,255,0.12);
+padding:6px 12px;
+border-radius:10px;
+
+display:none; /* default hidden */
 }
  .divineTopScroll .divineCard .divineTitle{
 color:#000 !important;
@@ -859,14 +859,220 @@ opacity:0.85;
 margin-top:10px;
 color:#082567;
 }
+ /* Hamburger icon */
+.menu-icon {
+  font-size: 26px;
+  color: white;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  cursor: pointer;
+  display: block;   /* हमेशा available रहेगा */
+}
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: #0b1d2a;
+  padding-top: 0px;   /* ✅ FIX */
+  transition: 0.3s ease;
+  z-index: 9999;
+}
+/* Menu links */
+.side-menu a {
+  display: block;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid #1f3a4d;
+}
+
+.side-menu a:hover {
+  background: #122c3f;
+}
+/* ===== MENU HEADER (GMAIL STYLE) ===== */
+
+.menuHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-size: 20px;
+  font-weight: bold;
+  color:#e6c56f;
+
+  padding: 16px;
+
+  border-bottom: 1px solid #1f3a4d;
+
+  background: linear-gradient(90deg,#1a2f3f,#0b1d2a);
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Logo */
+.menuLogo{
+width:38px;
+height:38px;
+border-radius:50%;
+object-fit:cover;
+}
+ .gitaTitleBox{
+  display:inline-block;
+  background: linear-gradient(45deg,#ffd700,#ffb300);
+  color: #000;   /* ✅ black text */
+  
+  padding: 10px 24px;
+  border-radius: 16px;
+  
+  font-size: 20px;
+  font-weight: 700;
+  
+  margin: 14px auto;
+  
+  box-shadow: 0 0 18px rgba(255,215,0,0.4);
+}
+ /* ===== MENU CARD GLOW EFFECT ===== */
+
+/* ===== GREEN SHINING MENU CARDS ===== */
+
+/* 🌿 FIX: CARD CONTAINER CONTROL */
+.menuCard {
+  position: relative;   /* ⭐ सबसे जरूरी fix */
+  overflow: hidden;     /* ⭐ glow बाहर नहीं फैलेगा */
+
+  background: linear-gradient(145deg, #0f2f1f, #071b12) !important;
+  border: 1px solid rgba(0,255,150,0.3) !important;
+  color: #b6ffd6 !important;
+
+  animation: greenBreath 2.5s infinite ease-in-out;
+}
+
+/* 🌿 BREATHING GLOW (SAFE) */
+@keyframes greenBreath {
+  0% {
+    box-shadow:
+      0 0 5px rgba(0,255,150,0.15),
+      0 0 10px rgba(0,255,150,0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 15px rgba(0,255,150,0.5),
+      0 0 30px rgba(0,255,150,0.7);
+  }
+  100% {
+    box-shadow:
+      0 0 5px rgba(0,255,150,0.15),
+      0 0 10px rgba(0,255,150,0.15);
+  }
+}
+
+/* ✨ SHINE (CONTROLLED WIDTH) */
+.menuCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;   /* ⭐ FULL WIDTH नहीं */
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,150,0.4),
+    transparent
+  );
+
+  transition: 0.5s;
+}
+
+/* hover shine */
+.menuCard:hover::before {
+  left: 120%;
+}
+
+/* 🔥 HOVER STRONG EFFECT */
+.menuCard:hover {
+  transform: translateY(-5px) scale(1.04);
+
+  box-shadow:
+    0 0 15px rgba(0,255,150,0.7),
+    0 0 35px rgba(0,255,150,0.9);
+
+  animation: none;
+}
+
+/* ⭐ Highlight card */
+.highlight {
+  border: 1px solid rgba(0,255,150,0.8) !important;
+}
+ .disabledMenu{
+opacity:0.4;
+pointer-events:none;   /* 🔥 click completely बंद */
+cursor:not-allowed;
+}
+ /* 🔥 FORCE YELLOW ABOUT CARDS */
+.aboutTopMenu .menuCard{
+background:linear-gradient(145deg,#fff7a8,#ffd84d) !important;
+color:#000 !important;
+
+animation:none !important;   /* green animation OFF */
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.5),
+0 0 18px rgba(255,215,0,0.35) !important;
+
+border:none !important;
+}
+
+/* shine effect हटाओ */
+.aboutTopMenu .menuCard::before{
+display:none !important;
+}
+ .aboutTopMenu .menuCard:hover{
+transform:translateY(-5px);
+box-shadow:
+0 0 30px rgba(255,215,0,0.6);
+}
 </style>
 </head>
 
 <body>
+
 <header id="titleBar">
-<span id="backBtn" onclick="goHome()">←</span>
-<span id="title">Home</span>
+  <span class="menu-icon" onclick="toggleMenu()">☰</span>
+  <span id="backBtn" onclick="goHome()">←</span>
+  <span id="title">Home</span>
 </header>
+<div id="overlay" onclick="closeMenu()" 
+style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+z-index:9998;
+"></div>
+<div id="sideMenu" class="side-menu">
+
+  <div class="menuHeader">
+  <img src="images/icon-512.png" class="menuLogo">
+    <span>ZQ Frequency</span>
+  </div>
+
+<a href="#" class="disabledMenu">📚 Course (Coming Soon)</a>
+<a href="pages/meditation.html">🧘 Meditation</a>
+<a href="pages/mindgym.html">🏋️ Mind Gym</a>
+<a href="#" onclick="openPage('about','About')">ℹ️ About</a>
+<a href="pages/privacy.html">🔒 Privacy Policy</a>
+
+</div>
 
 <!-- HOME -->
 <div id="home" class="container page active">
@@ -893,8 +1099,8 @@ Return to your original state
 <div class="dailyTitle">🕉 Krishna Today Says</div>
 
 <div class="dailyText">
-“जिस क्षण आप बाहरी परिस्थितियों को दोष देना छोड़ देते हैं, 
- उसी क्षण आपकी आंतरिक शक्ति जागृत होने लगती है।”
+"जो स्वयं को जान लेता है  
+उसे संसार पर विजय की आवश्यकता नहीं रहती।"
 </div>
 
 <div class="dailyBtn">
@@ -918,7 +1124,7 @@ Divine Access
 Krishna Code
 </div>
 
-<div class="menuCard" onclick="location.href='mindos.html'">
+<div class="menuCard" onclick="location.href='pages/mindos.html'">
 <span class="menuIcon">🧠</span>
 Mind OS
 </div>
@@ -1007,9 +1213,9 @@ SRINAGAR, J & K
 </div>
 <div class="gallery">
 
-<img src="AM.jpg">
-<img src="BR.jpg">
-<img src="MDH.jpg">
+<img src="images/AM.jpg">
+<img src="images/BR.jpg">
+<img src="images/MDH.jpg">
 
 </div>
 
@@ -1026,7 +1232,7 @@ SRINAGAR, J & K
 
 <div class="divineTopScroll">
 
-<div class="divineCard bigCard" onclick="window.open('maun-chakra.html','_self')">
+<div class="divineCard bigCard" onclick="window.open('pages/maun-chakra.html','_self')">
 <div class="divineIcon">🌀</div>
 <div class="divineTitle">Maun Chakra</div>
 
@@ -1036,7 +1242,7 @@ SRINAGAR, J & K
 </div>
 
 </div>
-<div class="divineCard bigCard" onclick="window.open('antar-darpan.html','_self')">
+<div class="divineCard bigCard" onclick="window.open('pages/antar-darpan.html','_self')">
 <div class="divineIcon">🔮</div>
 <div class="divineTitle">Antardarpan</div>
 
@@ -1046,8 +1252,8 @@ SRINAGAR, J & K
 </div>
 
 </div>
-<div class="divineCard bigCard" onclick="window.open('gyan-game.html','_self')">
-<div class="divineIcon">🪔</div>
+<div class="divineCard bigCard" onclick="window.open('pages/gyan-game.html','_self')">
+<div class="divineIcon">🎮</div>
 <div class="divineTitle">Gyan Game</div>
 
 <div class="divineInstruction">
@@ -1057,7 +1263,7 @@ SRINAGAR, J & K
 
 </div>
 
-<div class="divineCard bigCard" onclick="window.open('mind-witness-quiz.html','_self')">
+<div class="divineCard bigCard" onclick="window.open('pages/mind-witness-quiz.html','_self')">
 
 <div class="divineIcon">🕉</div>
 <div class="divineTitle">Mind-Witness Quiz</div>
@@ -1142,7 +1348,7 @@ Krishna Oracle
 अपना Q-ID देखकर उत्तर पढ़ें।
 </p>
 
-<a href="uttar.html" class="answerButton">
+<a href="pages/uttar.html" class="answerButton">
 📜 अपने उत्तर देखें
 </a>
 
@@ -1157,7 +1363,9 @@ Krishna Oracle
 <p class="quote whiteText">
 ✨ Return to Zero - Where Silence Speaks ✨
 </p>
- <h2>गीता ज्ञान</h2>
+<div class="gitaTitleBox">
+  गीता - ज्ञान
+</div>
 <p class="gitaShlok">
 त्यक्त्वा कर्मफलासङ्गं नित्यतृप्तो निराश्रयः।
 कर्मण्यभिप्रवृत्तोऽपि नैव किञ्चित्करोति सः॥ 4.20॥
@@ -1231,7 +1439,7 @@ box-shadow:0 0 18px rgba(255,215,0,0.4);
 
 </p>
 <div class="booksMockup">
- <img src="MO.png" alt="Gandharwa Anand Books Collection">
+ <img src="images/MO.png" alt="Gandharwa Anand Books Collection">
 </div>
  <!-- Book Review Section -->
 <div class="reviewBox">
@@ -1258,7 +1466,6 @@ box-shadow:0 0 18px rgba(255,215,0,0.4);
 </div>
 </div>   <!-- paperSection close -->
 </div>   <!-- books container close -->
-
 <!-- CONTACT -->
 <div id="contact" class="container page contact">
 <div class="contact-group">
@@ -1279,7 +1486,7 @@ box-shadow:0 0 18px rgba(255,215,0,0.4);
 </a>
 
 <!-- Privacy Policy -->
-<a href="privacy.html">
+<a href="pages/privacy.html">
 🔐 Privacy Policy
 </a>
 
@@ -1288,25 +1495,28 @@ box-shadow:0 0 18px rgba(255,215,0,0.4);
 </div>
 </div>
 <script>
-function openPage(id,title){
+function openPage(id, title){
 
-document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-document.getElementById(id).classList.add('active');
+  closeMenu();
 
-document.getElementById('title').innerText = title;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 
-/* Back arrow control */
-const backBtn = document.getElementById("backBtn");
+  document.getElementById('title').innerText = title;
 
-if(id === "home"){
-backBtn.style.display = "none";
-}else{
-backBtn.style.display = "block";
-}
+  const backBtn = document.getElementById("backBtn");
+  const menuIcon = document.querySelector(".menu-icon");
 
-window.scrollTo(0,0);
+  if(id === "home"){
+    backBtn.style.display = "none";
+    menuIcon.style.display = "block";   // ✅ Home पर दिखेगा
+  }else{
+    backBtn.style.display = "block";
+    menuIcon.style.display = "none";    // ❌ बाकी pages पर hide
+  }
 
-setTimeout(initGallery,300);
+  window.scrollTo(0,0);
+  setTimeout(initGallery,300);
 }
 function goHome(){
 openPage('home','Home');
@@ -1344,48 +1554,11 @@ if ('serviceWorker' in navigator) {
 </script>
   <script>
 function openPrashn(){
-window.open("prashn.html","_self");
+window.open("pages/prashn.html","_self");
 }
 </script>
 <script>
-document.addEventListener('click', function(e) {
 
-  let link = e.target.closest('a');
-  if (!link) return;
-
-  let url = link.getAttribute('href');
-  if (!url) return;
-
-  // Allow email links (Gmail / mail apps)
-  if (url.startsWith('mailto:')) {
-    window.location.href = url;
-    return;
-  }
-function krishnaOracle(){
-
-const messages = [
-
-"मन को स्थिर करो — उत्तर पहले से भीतर उपस्थित है।",
-
-"कर्म करो, फल की चिंता मत करो।",
-
-"जिसे तुम खोज रहे हो, वह तुम्हारे भीतर है।",
-
-"मौन में जाओ — वहीं सत्य स्पष्ट होता है।",
-
-"अहंकार छोड़ते ही मार्ग खुलने लगता है।",
-
-"जहाँ प्रेम है, वहीं कृष्ण का मार्ग है।",
-
-"चिंता छोड़ो — जीवन तुम्हें सही दिशा दे रहा है।"
-
-];
-
-const randomMessage = messages[Math.floor(Math.random()*messages.length)];
-
-document.getElementById("oracleResult").innerText = randomMessage;
-
-}
   // internal pages ignore
   if (url.startsWith('#') || url.startsWith('/')) return;
 
@@ -1398,14 +1571,58 @@ document.getElementById("oracleResult").innerText = randomMessage;
 });
 window.onload = function(){
 
-const activePage = document.querySelector('.page.active').id;
-const backBtn = document.getElementById("backBtn");
+  const activePage = document.querySelector('.page.active').id;
+  const backBtn = document.getElementById("backBtn");
+  const menuIcon = document.querySelector(".menu-icon");
 
-if(activePage === "home"){
-backBtn.style.display = "none";
-}
+  if(activePage === "home"){
+    backBtn.style.display = "none";
+    menuIcon.style.display = "block";   // ✅ Home पर दिखेगा
+  }else{
+    backBtn.style.display = "block";
+    menuIcon.style.display = "none";    // ❌ बाकी pages पर hide
+  }
 
 };
+</script>
+
+<script>
+
+function toggleMenu() {
+  let menu = document.getElementById("sideMenu");
+  let overlay = document.getElementById("overlay");
+
+  menu.style.left = "0px";
+  overlay.style.display = "block";
+}
+
+function closeMenu() {
+  document.getElementById("sideMenu").style.left = "-260px";
+  document.getElementById("overlay").style.display = "none";
+}
+function krishnaOracle(){
+
+  const messages = [
+    "मन को स्थिर करो - उत्तर पहले से भीतर उपस्थित है।",
+    "कर्म करो, फल की चिंता मत करो।",
+    "जिसे तुम खोज रहे हो, वह तुम्हारे भीतर है।",
+    "मौन में जाओ - वहीं सत्य स्पष्ट होता है।",
+    "अहंकार छोड़ते ही मार्ग खुलने लगता है।",
+    "जहाँ प्रेम है, वहीं कृष्ण का मार्ग है।",
+    "चिंता छोड़ो — जीवन तुम्हें सही दिशा दे रहा है।"
+  ];
+
+  const randomMessage = messages[Math.floor(Math.random()*messages.length)];
+
+  document.getElementById("oracleResult").innerText = randomMessage;
+}
+</script>
+ <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js').then(reg => {
+    reg.update(); // हर बार update check
+  });
+}
 </script>
 </body>
 </html>
