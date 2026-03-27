@@ -294,11 +294,11 @@ function startSpin(){
  const wheel = document.getElementById("wheel");
    document.getElementById("spinText").style.display = "block";
   wheel.style.animation = "none";
-  currentRotation += 1800;
-  wheel.style.transition = "transform 3.5s cubic-bezier(.12,.75,.38,1)";
+  currentRotation += 900;
+wheel.style.transition = "transform 7s cubic-bezier(.3,.7,.4,1)";
   wheel.style.transform = "rotate(" + currentRotation + "deg)";
 
-  setTimeout(()=>{ goResult(); },3600);
+  setTimeout(()=>{ goResult(); },7000);
 }
 
 function goResult(){
