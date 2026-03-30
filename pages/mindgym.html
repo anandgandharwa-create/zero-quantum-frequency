@@ -25,7 +25,7 @@ font-weight:bold;
 
 /* Container */
 .container{
-padding:20px;
+padding:10px;
 max-width:420px;
 margin:auto;
 }
@@ -40,44 +40,7 @@ border-radius:14px;
 margin-bottom:20px;
 font-size:14px;
 }
-
-/* Cards */
-.card{
-background:linear-gradient(145deg,#132532,#08131c);
-border-radius:20px;
-padding:20px;
-margin-bottom:16px;
-cursor:pointer;
-position:relative;
-overflow:hidden; 
-}
-
-.locked{
-opacity:0.4;
-}
-
-/* Lock Label */
-.lockLabel{
-position:absolute;
-top:10px;
-right:12px;
-background:#ff4d4d;
-padding:4px 8px;
-border-radius:8px;
-font-size:12px;
-}
-
-/* Premium Button */
-.premiumBtn{
-background:linear-gradient(45deg,#ffd700,#ffb300);
-color:#000;
-padding:14px;
-border-radius:14px;
-margin-top:15px;
-cursor:pointer;
-font-weight:bold;
-}
-
+  
 /* Result */
 .result{
 margin-top:10px;
@@ -99,14 +62,6 @@ border-radius:10px;
 z-index:9999;
 }
 
-.disabledBtn{
-opacity:0.5;
-cursor:not-allowed;
-background:linear-gradient(45deg,#999,#666);
-color:#ddd;
-box-shadow:none;
-}
-
 /* Breathing Box */
 .breathingBox{
 margin-top:20px;
@@ -115,7 +70,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 position:relative;
-height:160px; /* FIX */
+height:200px; /* FIX */
 }
 
 /* Circle */
@@ -202,22 +157,6 @@ transition:stroke-dashoffset 1s linear;
 <div class="circle" id="circle"></div>
 <div class="breathText" id="breathText">श्वास लें</div>
 
-</div>
-
-<div class="card locked">
-<div class="lockLabel">🔒 Premium</div>
-<h3>🔁 Thought Shift</h3>
-<p>विचार बदलने की कला</p>
-</div>
-
-<div class="card locked">
-<div class="lockLabel">🔒 Premium</div>
-<h3>👁 Awareness Drill</h3>
-<p>साक्षी भाव अभ्यास</p>
-</div>
-
-<div class="premiumBtn disabledBtn">
-🚧 Premium Coming Soon
 </div>
 
 <script>
