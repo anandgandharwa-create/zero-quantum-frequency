@@ -22,7 +22,23 @@ padding:16px;
 font-size:20px;
 font-weight:bold;
 }
+.card{
+background:linear-gradient(145deg,#132532,#08131c);
+border-radius:20px;
+padding:20px;
+margin-bottom:16px;
+cursor:pointer;
+position:relative;
+overflow:hidden;
 
+/* 👇 ADD THIS */
+box-shadow:0 0 10px rgba(0,255,213,0.3);
+transition:0.3s;
+}
+  .card:active{
+transform:scale(0.97);
+box-shadow:0 0 25px #00ffd5;
+}
 /* Container */
 .container{
 padding:10px;
@@ -95,8 +111,8 @@ transform:translate(-50%,-50%) scale(1.7); /* पहले 1.5 था */
 /* Text */
 .breathText{
 position:absolute;
-bottom:-25px;
-font-size:16px;
+bottom:-60px;   /* पहले -25px था */
+font-size:18px;
 color:#7CFF9E;
 }
 
@@ -124,6 +140,10 @@ transform:rotate(-90deg);
 transform-origin:50% 50%;
 transition:stroke-dashoffset 1s linear;
 }
+.mainBtn{
+border:1px solid #00ffd5;
+box-shadow:0 0 20px rgba(0,255,213,0.5);
+}  
 </style>
 </head>
 
@@ -140,7 +160,7 @@ transition:stroke-dashoffset 1s linear;
 <div>🔥 Streak: <span id="streak">0</span></div>
 <div>⭐ XP: <span id="xp">0</span></div>
 </div>
-
+<div class="card mainBtn" onclick="completeExercise()">
 <div class="card" onclick="completeExercise()">
 <h3>🎯 Focus Drill</h3>
 <p>30 सेकंड सांस पर ध्यान दें</p>
