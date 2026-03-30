@@ -75,11 +75,11 @@ height:200px; /* FIX */
 
 /* Circle */
 .circle{
-width:100px;
-height:100px;
+width:140px;   /* पहले 100px था */
+height:140px;
 border-radius:50%;
-background:radial-gradient(circle,#00ffd5,#007a6d);
-box-shadow:0 0 25px #00ffd5;
+background:radial-gradient(circle,#00ffd5,#004d45);
+box-shadow:0 0 40px #00ffd5, 0 0 80px #00ffd5;
 transition:all 4s ease-in-out;
 
 position:absolute;
@@ -89,7 +89,7 @@ transform:translate(-50%,-50%);
 }
 
 .circle.grow{
-transform:translate(-50%,-50%) scale(1.5);
+transform:translate(-50%,-50%) scale(1.7); /* पहले 1.5 था */
 }
 
 /* Text */
@@ -233,7 +233,7 @@ function startProgress(){
 
 let circle = document.getElementById("progressCircle");
 
-let radius = 50;
+let radius = 65;
 let circumference = 2 * Math.PI * radius;
 
 circle.style.strokeDasharray = circumference;
