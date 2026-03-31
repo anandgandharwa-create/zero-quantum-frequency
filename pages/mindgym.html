@@ -180,6 +180,7 @@ box-shadow:0 0 20px rgba(0,255,213,0.5);
 </div>
 
 <script>
+let isRunning = false;
 let breathingInterval;
 let progressInterval;
 
@@ -190,7 +191,8 @@ document.getElementById("streak").innerText = streak;
 document.getElementById("xp").innerText = xp;
 
 function completeExercise(){
-
+if(isRunning) return;
+isRunning = true;
 startBreathing();
 startProgress();
 
@@ -213,7 +215,7 @@ document.getElementById("result").innerText =
 }
 
 function startBreathing(){
-
+let breatheTimeout;
 let circle = document.getElementById("circle");
 let text = document.getElementById("breathText");
 
@@ -221,7 +223,7 @@ function breathe(){
 text.innerText = "श्वास लें";
 circle.classList.add("grow");
 
-setTimeout(()=>{
+breatheTimeout = setTimeout(()=>{
 text.innerText = "श्वास छोड़ें";
 circle.classList.remove("grow");
 },4000);
@@ -235,6 +237,7 @@ function stopBreathing(){
 
 clearInterval(breathingInterval);
 clearInterval(progressInterval);
+clearTimeout(breatheTimeout);
 
 let text = document.getElementById("breathText");
 let progressCircle = document.getElementById("progressCircle");
@@ -247,6 +250,8 @@ progressCircle.style.strokeDashoffset = circumference;
 
 circle.classList.remove("grow");
 text.innerText = "पूर्ण";
+
+isRunning = false;
 }
 
 function startProgress(){
