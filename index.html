@@ -527,31 +527,51 @@ margin-top:10px;
 }
 
 .menuCard{
-background:linear-gradient(145deg,#132532,#0a1823);
-border-radius:20px;
-padding:24px 12px;
-font-size:16px;
-color:#fff;
-cursor:pointer;
-transition:0.25s;
-font-weight:600;
+  position: relative;
+  overflow: hidden;
 
-box-shadow:
-0 10px 25px rgba(0,0,0,0.6),
-inset 0 0 10px rgba(255,255,255,0.03);
+  background: linear-gradient(145deg,#132532,#0a1823);
+  border-radius:20px;
+  padding:24px 12px;
+  font-size:16px;
+  color:#fff;
+  cursor:pointer;
+  transition:0.25s;
+  font-weight:600;
 
-text-align:center;
+  /* 🔥 NO BLINK / NO GLOW */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+
+  text-align:center;
 }
+
+/* simple hover (premium feel) */
+.menuCard:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+}
+ .menuGrid .menuCard{
+  animation: none !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5) !important;
+}
+
 /* ⭐ About page cards yellow */
 .aboutTopMenu .menuCard{
-background:linear-gradient(145deg,#fff7a8,#ffd84d);
-color:#000;
+  background:linear-gradient(145deg,#fff7a8,#ffd84d);
+  color:#000;
 
-box-shadow:
-0 10px 25px rgba(0,0,0,0.5),
-0 0 18px rgba(255,215,0,0.35);
+  box-shadow:
+  0 10px 25px rgba(0,0,0,0.5),
+  0 0 18px rgba(255,215,0,0.35);
+
+  /* 🔥 animation force OFF */
+  animation:none !important;
 }
 
+/* shine effect OFF */
+.menuCard::before{
+  display:none !important;
+}
 /* hover yellow cards */
 .aboutTopMenu .menuCard:hover{
 transform:translateY(-4px);
@@ -615,7 +635,7 @@ transform:scale(1.05);
 
 .answerButton{
 display:inline-block;
-margin-top:18px;
+margin-top:15px;
 background:#f59e0b;
 color:black;
 padding:14px 22px;
@@ -1051,6 +1071,67 @@ transform:translateY(-5px);
 box-shadow:
 0 0 30px rgba(255,215,0,0.6);
 }
+ .askBox{
+  margin: 20px 0 25px 0;   /* ऊपर-नीचे space */
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(0, 255, 200, 0.05);
+  border: 1px solid rgba(0,255,200,0.2);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+@keyframes yellowBlink {
+  0% {
+    box-shadow:
+      0 0 10px rgba(255,215,0,0.5),
+      0 0 20px rgba(255,215,0,0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow:
+      0 0 25px rgba(255,215,0,1),
+      0 0 50px rgba(255,215,0,0.7);
+    transform: scale(1.06);
+  }
+  100% {
+    box-shadow:
+      0 0 10px rgba(255,215,0,0.5),
+      0 0 20px rgba(255,215,0,0.3);
+    transform: scale(1);
+  }
+}
+
+.askQuestionBtn{
+  display:inline-block;
+  padding:12px 26px;
+
+  background:linear-gradient(135deg,#ffd700,#ffb300);
+  color:#1a1a1a;
+
+  border-radius:40px;
+  font-weight:600;
+  font-size:14px;
+
+  border:1px solid rgba(255,215,0,0.7);
+
+  cursor:pointer;
+
+  /* 🔥 BLINK EFFECT */
+  animation: yellowBlink 3.5s infinite;
+}
+
+/* hover (blink के ऊपर extra boost) */
+.askQuestionBtn:hover{
+  transform: scale(1.1);
+}
+
+.askWrap{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  margin:20px 0 25px 0;
+}
 </style>
 </head>
 
@@ -1119,6 +1200,15 @@ Return to your original state
 </div>
 
 
+<!-- 🔮 ASK QUESTION BUTTON (NEW) -->
+
+<div class="askWrap">
+  <div class="askQuestionBtn" onclick="location.href='pages/mann-ke-prashn.html'">
+    ✨ अपने मन का उत्तर अभी जानें
+  </div>
+</div>
+
+
 <!-- MAIN MENU -->
 
 <div class="menuGrid">
@@ -1132,17 +1222,6 @@ Divine Access
 <span class="menuIcon">🕉</span>
 Krishna Code
 </div>
-
-<div class="menuCard" onclick="location.href='pages/mindos.html'">
-<span class="menuIcon">🧠</span>
-Mind OS
-</div>
-
-<div class="menuCard small" onclick="openPage('about','About Us')">
-<span class="menuIcon">🧭</span>
-About
-</div>
-
 </div>
 
 <div class="footer">
@@ -1240,7 +1319,18 @@ SRINAGAR, J & K
 <div class="divineMenuSticky">
 
 <div class="divineTopScroll">
+<div class="divineCard bigCard" onclick="window.open('pages/mindos.html','_self')">
 
+<div class="divineIcon">🧠</div>
+
+<div class="divineTitle">Mind OS</div>
+
+<div class="divineInstruction">
+अपने मन का ऑपरेटिंग सिस्टम समझें<br>
+विचार, भावनाएँ और चेतना को री-प्रोग्राम करें
+</div>
+
+</div>
 <div class="divineCard bigCard" onclick="window.open('pages/maun-chakra.html','_self')">
 <div class="divineIcon">🌀</div>
 <div class="divineTitle">Maun Chakra</div>
@@ -1311,30 +1401,7 @@ SRINAGAR, J & K
 <div class="courseClosing">
 Divine Access - क्योंकि सच्ची समृद्धि भीतर की शांति से प्रारंभ होती है।
 </div>
-<!-- KRISHNA ORACLE -->
-
-<div class="oracleCard">
-
-<div class="oracleIcon">🕉</div>
-
-<div class="oracleTitle">
-Krishna Oracle
-</div>
-
-<div class="oracleText">
-अपने मन में एक प्रश्न रखें और कृष्ण से मार्गदर्शन प्राप्त करें।
-</div>
-
-<button class="oracleBtn" onclick="krishnaOracle()">
-कृष्ण से उत्तर प्राप्त करें
-</button>
-
-<div id="oracleResult" class="oracleResult"></div>
-
-</div>
-</div>
- 
-<!-- ASK AGAIN BUTTON -->
+ <!-- ASK AGAIN BUTTON -->
 <div style="text-align:center;margin-top:30px;">
 <a onclick="openPrashn()" class="askButton">
 अपने भीतर के प्रश्न पूछें
@@ -1355,6 +1422,7 @@ Krishna Oracle
 📜 अपने उत्तर देखें
 </a>
 
+</div>
 </div>
 
 </div>  <!-- courses container close -->
@@ -1409,7 +1477,7 @@ Krishna Oracle
 निरंतर अभ्यास और एकाग्र मन से भगवान का चिंतन करने वाला साधक अंततः उन्हें प्राप्त कर लेता है।
 </p>
 
-</div>
+
 <!-- Krishna YouTube Button -->
 <div style="text-align:center; margin-top:30px;">
 
