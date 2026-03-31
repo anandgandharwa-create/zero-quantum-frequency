@@ -162,12 +162,7 @@ if(localStorage.getItem("date") !== today){
 
 function update(){
   let limitText = document.getElementById("limitText");
-
-  if(premium==="yes"){
-    limitText.innerText="💎 Premium (Unlimited)";
-  }else{
-    limitText.innerText=`Free: ${dailyLimit-used} / 2 बाकी`;
-  }
+  limitText.innerText="✨ Unlimited Access";
 }
 update();
 
