@@ -109,8 +109,9 @@ button:active{
   transform:scale(1.05);
   box-shadow:0 0 20px rgba(255,200,0,1);
 }
-  select {
+ select {
   height: 50px;
+  appearance: none;
 }
 
 </style>
@@ -348,16 +349,25 @@ spiritual:[
 // ===== LOAD QUESTIONS =====
 function loadQuestions(){
 
-let cat = document.getElementById("category").value;
-let q = document.getElementById("q");
+  let cat = document.getElementById("category").value;
+  let q = document.getElementById("q");
 
-q.innerHTML = '<option value="">प्रश्न चुनें...</option>';
+  // 🔹 answer reset
+  document.getElementById("ans").innerHTML = "उत्तर यहाँ आएगा...";
 
-if(Q[cat]){
+  // 🔹 dropdown reset
+  q.innerHTML = '<option value="">प्रश्न चुनें...</option>';
+
+  // 🔹 अगर category select नहीं है
+  if(!cat) return;
+
+  // 🔹 questions load
   Q[cat].forEach((item,i)=>{
-    q.innerHTML += `<option value="${cat}-${i}">${item.q}</option>`;
+    let opt = document.createElement("option");
+    opt.value = `${cat}-${i}`;
+    opt.textContent = item.q;
+    q.appendChild(opt);
   });
-}
 
 }
 // ===== GET ANSWER =====
@@ -408,9 +418,6 @@ premium="yes";
  alert("🚀 Jald hi aa raha hai");
 update();
 }
-document.getElementById("q").addEventListener("change", function(){
-  this.size = 1;
-});
 </script>
 
 </body>
