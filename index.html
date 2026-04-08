@@ -1691,16 +1691,7 @@ window.open("pages/prashn.html","_self");
 </script>
 <script>
 
-  // internal pages ignore
-  if (url.startsWith('#') || url.startsWith('/')) return;
 
-  // open external websites in browser
-  if (url.startsWith('http')) {
-    e.preventDefault();
-    window.open(url, '_blank');
-  }
-
-});
 window.onload = function(){
 
   const activePage = document.querySelector('.page.active').id;
