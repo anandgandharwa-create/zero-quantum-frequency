@@ -1159,6 +1159,87 @@ box-shadow:
   transform: scale(1.05);
   box-shadow: 0 0 30px rgba(0, 198, 255, 0.9);
 }
+ /* 🔥 NEW HOME UI */
+
+.mainCard{
+background:linear-gradient(145deg,#0b2230,#06141d);
+border-radius:25px;
+padding:30px 20px;
+margin-bottom:25px;
+
+box-shadow:0 0 30px rgba(0,150,255,0.25);
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.mainText{
+font-size:20px;
+line-height:1.6;
+color:#dcefff;
+}
+
+.highlightText{
+color:#ffd700;
+font-weight:bold;
+}
+
+.infoCard{
+background:linear-gradient(145deg,#112a3a,#08141d);
+border-radius:22px;
+padding:22px;
+margin-bottom:22px;
+
+box-shadow:0 8px 25px rgba(0,0,0,0.6);
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.cardTitle{
+color:#ffd700;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.cardText{
+color:#d6e6f2;
+font-size:15px;
+line-height:1.6;
+}
+
+.btnWrap{
+margin-top:18px;
+}
+
+.mainBtn{
+background:linear-gradient(45deg,#ffd700,#ffb300);
+color:#000;
+padding:14px;
+border-radius:30px;
+font-weight:600;
+margin:10px 0;
+cursor:pointer;
+
+box-shadow:0 0 20px rgba(255,215,0,0.4);
+}
+
+.mainBtn.outline{
+background:transparent;
+border:1px solid #ffd700;
+color:#ffd700;
+}
+
+.levelBox{
+margin-top:15px;
+color:#d6e6f2;
+font-size:14px;
+}
+
+.bottomNote{
+margin-top:10px;
+font-size:13px;
+color:#8faec2;
+}
+ .container{
+justify-content:flex-start;
+}
 </style>
 </head>
 
@@ -1188,6 +1269,11 @@ z-index:9998;
   </div>
 
 <a href="#" class="disabledMenu">📚 Course (Coming Soon)</a>
+ <a href="#" onclick="openPage('courses','Divine Access')">✨ Divine Access</a>
+<a href="#" onclick="openPage('krishna','Krishna Code')" class="menuItem">
+  📖 Krishna Code
+  <span class="menuSub">गीता का गुप्त ज्ञान</span>
+</a>
 <a href="pages/meditation.html">🧘 Meditation</a>
 <a href="pages/mindgym.html">🏋️ Mind Gym</a>
 <a href="#" onclick="openPage('about','About')">ℹ️ About</a>
@@ -1198,62 +1284,53 @@ z-index:9998;
 <!-- HOME -->
 <div id="home" class="container page active">
 
-<div class="homeTop">
-
-<div class="tagline">
-आप अपने मूल स्वरूप में लौट रहे हैं
-</div>
-<div class="tagline">
-Return to your original state
-</div>
-
-</div>
-
-
-<!-- DAILY KRISHNA MESSAGE -->
-
-<div class="dailyCard">
-
-<div class="dailyTitle">🔮 आज का रहस्य </div>
-
-<div class="dailyText">
-“लोग किस्मत बदलने के पीछे भागते हैं
-और समझदार लोग अपनी ‘सोच’ बदल देते हैं।
-क्योंकि वही असली game changer है।”
-</div>
-
-
-</div>
-
-
-<!-- 🔮 ASK QUESTION BUTTON (NEW) -->
-
-<div class="askWrap">
-  <div class="askQuestionBtn" onclick="location.href='pages/mann-ke-prashn.html'">
-   ➤ अपने मन का उत्तर अभी जानें
-  </div>
-</div>
-<!-- 🎧 आज का ऑडियो बटन -->
-
-<div class="askWrap">
-  <div class="askQuestionBtn" onclick="location.href='audio/audio5.mp3'">
-    🎧 आज की ऊर्जा सुनें
+<!-- 🔷 TOP QUESTION CARD -->
+<div class="mainCard">
+  <div class="mainText">
+    ⚡ क्या आप अपने मन को <br>
+    <span class="highlightText">नियंत्रित करते हैं</span><br>
+    या मन आपको?
   </div>
 </div>
 
-<!-- MAIN MENU -->
-
-<div class="menuGrid">
-
-<div class="menuCard highlight" onclick="openPage('courses','Divine Access')">
-<span class="menuIcon">✨</span>
-Divine Access
+<!-- 🌿 TODAY THOUGHT -->
+<div class="infoCard">
+  <div class="cardTitle">🌿 आज का विचार</div>
+  <div class="cardText">
+    “हर समस्या भविष्य में रहती है, और शांति हमेशा वर्तमान में।
+    जो अभी में जीता है, वही विजेता बनता है।”
+  </div>
 </div>
 
-<div class="menuCard highlight" onclick="openPage('krishna','Krishna Code')">
-<span class="menuIcon">🕉</span>
-Krishna Code
-</div>
+<!-- 🔥 TODAY TRUTH -->
+<div class="infoCard">
+  <div class="cardTitle">🔥 आज का सत्य</div>
+  <div class="cardText">
+    “लोग किस्मत बदलने के पीछे भागते हैं,
+    और समझदार लोग अपनी सोच बदल देते हैं।
+    क्योंकि वही असली game changer है।”
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="btnWrap">
+   <div class="mainBtn" onclick="location.href='pages/gyan-parakh.html'">
+   ✨ अपने ज्ञान को परखें
+</div>>
+
+    <div class="mainBtn outline" onclick="location.href='pages/mann-ke-prashn.html'">
+      ✨ अभी जानें - आपका मन क्या कह रहा है
+    </div>
+  </div>
+
+  <!-- LEVEL INFO -->
+  <div class="levelBox">
+    🏆 Level: 1 &nbsp; | &nbsp; 🔥 Day: 0
+  </div>
+
+  <div class="bottomNote">
+    🔔 कल फिर आएं - नया अनुभव आपका इंतजार करेगा
+  </div>
+
 </div>
 
 <div class="footer">
