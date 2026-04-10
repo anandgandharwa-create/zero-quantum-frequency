@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gyan ka Game</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #001a12, #003d2b, #00664d);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+  h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #f5e6a3;
+}
+
+/* 🌌 Divine Aura Background */
+body::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,215,0,0.08), transparent 70%);
+    animation: auraMove 12s linear infinite;
+    z-index: -1;
+}
+
+@keyframes auraMove {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.container {
+    padding: 20px;
+}
+
+/* 💎 Glass Card */
+.card {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* 🔱 Divine Question */
+#question h3 {
+    color: #FFD700;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 12px;
+    display: inline-block;
+    background: rgba(255,215,0,0.08);
+    text-shadow: 0 0 10px rgba(255,215,0,0.8);
+    animation: divineGlow 2s infinite alternate;
+}
+
+@keyframes divineGlow {
+    0% { text-shadow: 0 0 5px rgba(255,215,0,0.5); }
+    100% { text-shadow: 0 0 20px rgba(255,215,0,1); }
+}
+
+/* 🔘 Divine Button */
+button {
+    padding: 12px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #FFD700, #ffcc00);
+    color: #002b1f;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255,215,0,0.6);
+    transition: 0.3s;
+}
+
+button:hover {
+    box-shadow: 0 0 20px rgba(255,215,0,1);
+    transform: scale(1.05);
+}
+
+/* 🎯 Options */
+.option {
+    display: block;
+    background: rgba(255,255,255,0.95);
+    color: black;
+    margin: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option:hover {
+    background: #fff8dc;
+    box-shadow: 0 0 10px gold;
+    transform: scale(1.05);
+}
+
+/* ✅ Correct / ❌ Wrong */
+.correct {
+    background: #00c853 !important;
+    color: white;
+}
+
+.wrong {
+    background: #ff5252 !important;
+    color: white;
+}
+
+/* 💫 Result Box */
+#resultBox {
+    margin-top: 15px;
+    font-size: 16px;
+    background: rgba(255,215,0,0.1);
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255,215,0,0.4);
+}
+
+/* 📊 Progress */
+.progress {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎮 Gyan ka Game</h1>
+
+<div id="startScreen" class="card">
+    <p>आज के 5 प्रश्न खेलें और अपना ज्ञान बढ़ाएं</p>
+    <button onclick="startGame()">Start Game</button>
+</div>
+
+<div id="gameScreen" class="card" style="display:none;">
+    <div id="question"></div>
+    <div id="options"></div>
+
+    <div id="resultBox"></div>
+    <button id="nextBtn" onclick="nextQuestion()" style="display:none;">Next</button>
+
+    <div class="progress" id="progress"></div>
+</div>
+
+<div id="resultScreen" class="card" style="display:none;">
+    <h2>आपका स्कोर: <span id="score"></span>/5</h2>
+    <p id="finalMsg"></p>
+    <button onclick="restartGame()">फिर से खेलें</button>
+</div>
+
+</div>
+
+<script>
+
+const questions = [
+{
+    q: "मन अशांत क्यों होता है?",
+    options: ["अपेक्षा", "शांति", "ज्ञान", "धैर्य"],
+    answer: "अपेक्षा",
+    gyan: "जहाँ अपेक्षा अधिक, वहाँ अशांति निश्चित।"
+},
+{
+    q: "सच्ची शक्ति क्या है?",
+    options: ["पैसा", "गुस्सा", "संयम", "शरीर"],
+    answer: "संयम",
+    gyan: "जो खुद को जीत ले, वही सबसे शक्तिशाली।"
+},
+{
+    q: "खुशी कहाँ मिलती है?",
+    options: ["बाहर", "दूसरों में", "अपने भीतर", "पैसे में"],
+    answer: "अपने भीतर",
+    gyan: "खुशी बाहर नहीं, अनुभव के भीतर है।"
+},
+{
+    q: "जीवन का उद्देश्य क्या है?",
+    options: ["कमाना", "सीखना", "जागना", "सोना"],
+    answer: "जागना",
+    gyan: "जीवन का असली लक्ष्य चेतना का जागरण है।"
+},
+{
+    q: "क्रोध को कैसे जीतें?",
+    options: ["चिल्लाकर", "शांत रहकर", "भागकर", "दबाकर"],
+    answer: "शांत रहकर",
+    gyan: "शांति ही क्रोध का अंत है।"
+}
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function startGame() {
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("gameScreen").style.display = "block";
+    showQuestion();
+}
+
+function showQuestion() {
+    answered = false;
+    document.getElementById("resultBox").innerHTML = "";
+    document.getElementById("nextBtn").style.display = "none";
+
+    let q = questions[current];
+    document.getElementById("question").innerHTML = "<h3>" + q.q + "</h3>";
+
+    let optionsHtml = "";
+    q.options.forEach(opt => {
+        optionsHtml += `<div class="option" onclick="checkAnswer(this, '${opt}')">${opt}</div>`;
+    });
+
+    document.getElementById("options").innerHTML = optionsHtml;
+    document.getElementById("progress").innerText = `Question ${current+1}/5`;
+}
+
+function checkAnswer(el, selected) {
+    if(answered) return;
+    answered = true;
+
+    let correct = questions[current].answer;
+    let gyan = questions[current].gyan;
+
+    let options = document.querySelectorAll(".option");
+
+    options.forEach(opt => {
+        if(opt.innerText === correct){
+            opt.classList.add("correct");
+        }
+        if(opt.innerText === selected && selected !== correct){
+            opt.classList.add("wrong");
+        }
+    });
+
+    if(selected === correct){
+        score++;
+        document.getElementById("resultBox").innerHTML = "✔ सही!<br>" + gyan;
+    } else {
+        document.getElementById("resultBox").innerHTML = "❌ गलत!<br>" + gyan;
+    }
+
+    document.getElementById("nextBtn").style.display = "inline-block";
+}
+
+function nextQuestion() {
+    current++;
+    if(current < questions.length){
+        showQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    document.getElementById("gameScreen").style.display = "none";
+    document.getElementById("resultScreen").style.display = "block";
+    document.getElementById("score").innerText = score;
+
+    let msg = "";
+    if(score == 5) msg = "🔥 आप जागरूक हैं!";
+    else if(score >=3) msg = "✨ आप सही दिशा में हैं";
+    else msg = "🌱 सीख की शुरुआत हुई है";
+
+    document.getElementById("finalMsg").innerText = msg;
+}
+
+function restartGame(){
+    current = 0;
+    score = 0;
+    document.getElementById("resultScreen").style.display = "none";
+    document.getElementById("startScreen").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
