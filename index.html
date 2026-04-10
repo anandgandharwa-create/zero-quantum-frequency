@@ -1142,22 +1142,28 @@ box-shadow:
   justify-content:center;
   margin:20px 0 25px 0;
 }
- .audioBtn {
-  background: linear-gradient(135deg, #6a5cff, #00c6ff);
-  color: #fff;
+.audioBtn {
+  display: block;
+  width: 85%;
+  margin: 12px auto;
+  margin-bottom:20px;
+
+  background: linear-gradient(145deg, #00ff9c, #00cc7a);
+  color: #000;
+
   font-weight: 600;
   text-align: center;
   padding: 14px 20px;
   border-radius: 30px;
-  cursor: pointer;
-  margin-top: 12px;
-  box-shadow: 0 0 20px rgba(106, 92, 255, 0.7);
-  transition: 0.3s;
-}
 
-.audioBtn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(0, 198, 255, 0.9);
+  text-decoration: none;
+  cursor: pointer;
+
+  /* ❌ glow हटाया */
+  box-shadow: none;
+
+  /* ❌ smooth but no effect */
+  transition: none;
 }
  /* 🔥 NEW HOME UI */
 
@@ -1183,19 +1189,23 @@ font-weight:bold;
 }
 
 .infoCard{
-background:linear-gradient(145deg,#112a3a,#08141d);
-border-radius:22px;
-padding:22px;
-margin-bottom:22px;
+  background:linear-gradient(145deg,#112a3a,#08141d);
+  border-radius:22px;
 
-box-shadow:0 8px 25px rgba(0,0,0,0.6);
-border:1px solid rgba(255,255,255,0.05);
+padding:32px 24px;  /* 🔥 पहले कम था → बढ़ाया */
+  margin-bottom:28px;  /* 🔥 नीचे gap बढ़ाया */
+
+  box-shadow:0 8px 25px rgba(0,0,0,0.6);
+  border:1px solid rgba(255,255,255,0.05);
+
+  max-width:400px;     /* 🔥 थोड़ा बड़ा */
 }
 
 .cardTitle{
-color:#ffd700;
-font-weight:600;
-margin-bottom:10px;
+  color:#ffd700;
+  font-weight:600;
+
+  margin-bottom:30px;   /* 🔥 gap बढ़ा */
 }
 
 .cardText{
@@ -1214,9 +1224,8 @@ color:#000;
 padding:14px;
 border-radius:30px;
 font-weight:600;
-margin:10px 0;
+margin:18px 0;
 cursor:pointer;
-
 box-shadow:0 0 20px rgba(255,215,0,0.4);
 }
 
@@ -1296,24 +1305,28 @@ z-index:9998;
 <div class="infoCard">
   <div class="cardTitle">🌿 आज का विचार</div>
   <div class="cardText">
-   “जो आप सोच रहे हैं,
-वो सच नहीं है… बस एक चलता हुआ विचार है।”
+    “याद रखो, तुम्हारा भविष्य तुम्हारी आज की आदतों से बनता है,
+न कि तुम्हारी पुरानी गलतियों से।
+उठो, शुरू करो और तब तक मत रुको
+जब तक खुद पर गर्व महसूस न हो जाए।”
   </div>
 </div>
 
 <!-- 🔥 TODAY TRUTH -->
 <div class="infoCard">
   <div class="cardTitle">🔥 आज का रहस्य</div>
-  <div class="cardText">
-    “मन हमेशा कहानी बना रहा है
-और आप उसे सच मानकर जी रहे हैं,यही मुख्य समस्या है।”
-  </div>
+ <!-- AUDIO PLAYER -->
+<div style="margin-top:18px;">
+<a href="audio/audio5.mp3" target="_blank" class="audioBtn">
+  🎧 आज का रहस्य सुनें
+</a>
+</div>
 
   <!-- BUTTONS -->
   <div class="btnWrap">
    <div class="mainBtn" onclick="location.href='pages/gyan-parakh.html'">
-    ⚫ अपने ज्ञान को परखें
-</div>>
+  ⚫ अपने ज्ञान को परखें
+</div>
 
     <div class="mainBtn outline" onclick="location.href='pages/mann-ke-prashn.html'">
       ✨ अभी जानें - आपका मन क्या कह रहा है
@@ -1322,7 +1335,7 @@ z-index:9998;
 
   <!-- LEVEL INFO -->
   <div class="levelBox">
-    🏆 Level: 1 &nbsp; | &nbsp; 🔥 Day: 0
+    🏆 Level: 1 &nbsp; | &nbsp; 🧘 Mode: Active
   </div>
 
   <div class="bottomNote">
@@ -1768,16 +1781,6 @@ window.open("pages/prashn.html","_self");
 </script>
 <script>
 
-  // internal pages ignore
-  if (url.startsWith('#') || url.startsWith('/')) return;
-
-  // open external websites in browser
-  if (url.startsWith('http')) {
-    e.preventDefault();
-    window.open(url, '_blank');
-  }
-
-});
 window.onload = function(){
 
   const activePage = document.querySelector('.page.active').id;
@@ -1869,6 +1872,16 @@ if ('serviceWorker' in navigator) {
 }
    function revealGyan(){
   alert("आज का पूरा संदेश यहाँ दिखेगा 🔥");
+}
+   
+function playAudio(){
+  const audio = document.getElementById("todayAudio");
+
+  if(audio.paused){
+    audio.play();
+  } else {
+    audio.pause();
+  }
 }
 </script>
 <div id="updatePopup" style="
