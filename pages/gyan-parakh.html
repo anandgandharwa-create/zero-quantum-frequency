@@ -66,6 +66,9 @@ h1 {
     color: black;
     font-weight: bold;
 }
+    .option:active {
+    transform: scale(0.97);
+}
 
 .next-btn, #restartBtn {
     width: 100%;
@@ -104,7 +107,7 @@ h1 {
         <div id="options"></div>
         <div class="result" id="result"></div>
         <button id="nextBtn" class="next-btn" onclick="nextQuestion()" style="display:none;">
-➡️ Next
+➡️ आगे बढ़ें
 </button>
     <button id="restartBtn" onclick="restartGame()" style="display:none; margin-top:20px;">
 🔁 फिर से शुरू करें
@@ -115,16 +118,16 @@ h1 {
 <script>
 let questions = [
     {
-        question: "आप अभी जीवन में क्या खोज रहे हैं?",
-        options: ["शांति", "सफलता", "प्रेम"]
+        question: "अगर आज आखिरी मौका हो, तो आप क्या बदलना चाहेंगे?",
+        options: ["अपनी सोच", "अपनी आदतें", "अपना लक्ष्य"]
     },
     {
-        question: "आपको सबसे ज्यादा क्या रोकता है?",
-        options: ["डर", "आलस", "लोगों की सोच"]
+        question: "आपको असली में पीछे क्या खींच रहा है?",
+        options: ["डर", "संदेह", "कम्फर्ट ज़ोन"]
     },
     {
-        question: "आपका दिल अभी क्या चाहता है?",
-        options: ["आराम", "बदलाव", "कुछ बड़ा"]
+        question: "आपकी आत्मा अभी क्या मांग रही है?",
+        options: ["शांति", "साहस", "एक नई शुरुआत"]
     }
 ];
 
@@ -183,13 +186,13 @@ function showPrediction() {
     let message = "";
 
     if (answersChosen.includes("डर")) {
-        message = "🔮 ब्रह्मांड का संकेत: आपका डर ही आपकी सबसे बड़ी शक्ति बनने वाला है। उसे स्वीकार करें।";
+        message = "🔮 ब्रह्मांड का संकेत: जिस चीज़ से आप डर रहे हैं, वही आपकी सबसे बड़ी शक्ति बनने वाली है। उसे अपनाइए।";
     } 
-    else if (answersChosen.includes("सफलता")) {
-        message = "🔮 संकेत: आने वाले समय में आपके लिए बड़ा अवसर तैयार है। तैयार रहिए।";
+    else if (answersChosen.includes("साहस") || answersChosen.includes("एक नई शुरुआत")) {
+        message = "🔮 संकेत: आप एक नए अध्याय के द्वार पर खड़े हैं। बस एक निर्णय आपकी दिशा बदल देगा।";
     } 
     else {
-        message = "🔮 संकेत: आपका जीवन एक नए मोड़ पर है। खुद पर भरोसा रखें।";
+        message = "🔮 संकेत: आपकी ऊर्जा बदल रही है। आने वाला समय आपको वहीं ले जाएगा जहाँ आपको होना चाहिए।";
     }
 
     document.getElementById("question").innerText = "✨ आपका Divine Message";
