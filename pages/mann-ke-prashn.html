@@ -144,7 +144,9 @@ button:active{
 
 <div class="limit" id="limitText"></div>
 
-<button class="premium-btn" onclick="goPremium()">💎 Premium Coming Soon</button>
+<a href="premium.html">
+  <button class="premium-btn">💎 Premium Coming Soon</button>
+</a>
 
 </div>
 
@@ -408,15 +410,6 @@ if(premium!=="yes"){
 
 },3000);
 
-}
-
-
-// ===== PREMIUM =====
-function goPremium(){
-localStorage.setItem("premium","yes");
-premium="yes";
- alert("🚀 Jald hi aa raha hai");
-update();
 }
 </script>
 
