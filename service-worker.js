@@ -1,4 +1,4 @@
-const CACHE_NAME = "zqf-v133";  // <-- हर update पर सिर्फ यही बदलना
+const CACHE_NAME = "zqf-v134";  // <-- हर update पर सिर्फ यही बदलना
 
 const urlsToCache = [
   "/zero-quantum-frequency/",
@@ -12,6 +12,9 @@ const urlsToCache = [
   "/zero-quantum-frequency/pages/antar-darpan.html",
   "/zero-quantum-frequency/pages/gyan-game.html",
   "/zero-quantum-frequency/pages/mind-witness-quiz.html",
+   "/zero-quantum-frequency/pages/mann-ke-prashn.html",
+   "/zero-quantum-frequency/pages/premium.html",
+  
 
   // existing
   "/zero-quantum-frequency/pages/mindos.html",
