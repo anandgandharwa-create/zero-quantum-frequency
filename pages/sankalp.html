@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🌿 आत्म-निरीक्षण App</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0a0f2c, #001f3f);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    width: 90%;
+    max-width: 420px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+h2 {
+    text-align: center;
+    color: gold;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+   select option {
+    color: #003300;
+    background: #ccffcc;
+}
+
+/* Progress */
+#progress {
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#bar {
+    height: 100%;
+    width: 0%;
+    background: gold;
+    transition: 0.3s;
+}
+
+/* Result */
+#resultBox {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(0,255,150,0.08);
+    border: 1px solid rgba(0,255,150,0.5);
+    display: none;
+    line-height: 1.6;
+}
+
+#score {
+    font-size: 18px;
+    margin-top: 10px;
+    color: gold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>🌿 आत्म-निरीक्षण</h2>
+
+<div id="progress"><div id="bar"></div></div>
+
+<p>🙊 आज मैंने निंदा की?</p>
+<select class="q">
+<option value="">चुनें...</option>
+<option value="0">नहीं</option>
+<option value="1">थोड़ी</option>
+<option value="2">काफी</option>
+<option value="3">बहुत ज्यादा</option>
+</select>
+
+<p>😡 आज मैंने गुस्सा किया?</p>
+<select class="q">
+<option value="">चुनें...</option>
+<option value="0">नहीं</option>
+<option value="1">थोड़ा</option>
+<option value="2">काफी</option>
+<option value="3">बहुत ज्यादा</option>
+</select>
+
+<p>💤 आज मैंने आलस्य किया?</p>
+<select class="q">
+<option value="">चुनें...</option>
+<option value="0">नहीं</option>
+<option value="1">थोड़ा</option>
+<option value="2">काफी</option>
+<option value="3">बहुत ज्यादा</option>
+</select>
+
+<p>⏳ आज मैंने समय बर्बाद किया?</p>
+<select class="q">
+<option value="">चुनें...</option>
+<option value="0">नहीं</option>
+<option value="1">थोड़ा</option>
+<option value="2">काफी</option>
+<option value="3">बहुत ज्यादा</option>
+</select>
+
+<p>💪 आज मैंने कुछ अच्छा किया?</p>
+<select class="q">
+<option value="">चुनें...</option>
+<option value="0">हाँ, बहुत अच्छा</option>
+<option value="1">थोड़ा</option>
+<option value="3">नहीं</option>
+</select>
+
+<div id="score"></div>
+<div id="resultBox"></div>
+
+</div>
+
+<script>
+
+let selects = document.querySelectorAll(".q");
+
+selects.forEach(s => {
+    s.addEventListener("change", checkAll);
+});
+// 📊 Save daily score
+
+function checkAll() {
+
+    let filled = 0;
+    let total = selects.length;
+    let score = 0;
+
+    selects.forEach(s => {
+        if (s.value !== "") {
+            filled++;
+            score += parseInt(s.value);
+        }
+    });
+
+    // Progress bar
+    document.getElementById("bar").style.width = (filled/total)*100 + "%";
+
+    // All selected
+    if (filled === total) {
+        showResult(score);
+        updateStreak();
+    }
+}
+
+function showResult(score) {
+
+    let resultText = "";
+    let level = "";
+
+    if (score <= 3) {
+        level = "🔥 Powerful Day";
+        resultText = `🌟 आज आपका दिन अत्यंत श्रेष्ठ रहा।
+आपने अपने मन और कर्मों पर अच्छा नियंत्रण रखा।
+आप आत्म-विकास के उच्च स्तर पर हैं।`;
+    }
+    else if (score <= 7) {
+        level = "💪 Improving";
+        resultText = `🌿 आपने अच्छा प्रयास किया है।
+कुछ सुधार की गुंजाइश है, लेकिन आप सही दिशा में हैं।
+कल आप और बेहतर कर सकते हैं।`;
+    }
+    else {
+        level = "⚠️ Needs Awareness";
+        resultText = `🔥 आज आपको खुद पर थोड़ा और ध्यान देने की आवश्यकता है।
+आपकी आदतों में सुधार जरूरी है।
+कल एक नई शुरुआत करें।`;
+    }
+
+   document.getElementById("score").innerText = level;
+
+    let box = document.getElementById("resultBox");
+    box.style.display = "block";
+    box.innerText = resultText;
+    saveScore(score); 
+    updateStreak(level);
+}
+
+// 🔥 Streak system
+function updateStreak(level) {
+
+    let today = new Date().toDateString();
+    let last = localStorage.getItem("lastDate");
+    let streak = parseInt(localStorage.getItem("streak")) || 0;
+
+    if (last !== today) {
+        streak++;
+        localStorage.setItem("streak", streak);
+        localStorage.setItem("lastDate", today);
+    }
+
+    document.getElementById("score").innerHTML = 
+        level + " | 🔥 Streak: " + streak;
+}
+</script>
+
+</body>
+</html>
