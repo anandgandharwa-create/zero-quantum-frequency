@@ -79,6 +79,11 @@ select {
     margin-top: 10px;
     color: gold;
 }
+    #score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 </style>
 </head>
 
@@ -146,7 +151,6 @@ let selects = document.querySelectorAll(".q");
 selects.forEach(s => {
     s.addEventListener("change", checkAll);
 });
-// 📊 Save daily score
 
 function checkAll() {
 
@@ -167,7 +171,6 @@ function checkAll() {
     // All selected
     if (filled === total) {
         showResult(score);
-        updateStreak();
     }
 }
 
@@ -195,17 +198,24 @@ function showResult(score) {
 कल एक नई शुरुआत करें।`;
     }
 
-   document.getElementById("score").innerText = level;
+    let streak = updateStreak(); // ✅ streak लो
+
+    // ✅ Proper UI display
+   document.getElementById("score").innerHTML = `
+<span>${level}</span>
+<span>🔥 Streak: ${streak}</span>
+`;
 
     let box = document.getElementById("resultBox");
     box.style.display = "block";
     box.innerText = resultText;
-    saveScore(score); 
-    updateStreak(level);
+
+    saveScore(score);
 }
 
-// 🔥 Streak system
-function updateStreak(level) {
+
+// 🔥 FINAL STREAK FUNCTION
+function updateStreak() {
 
     let today = new Date().toDateString();
     let last = localStorage.getItem("lastDate");
@@ -217,8 +227,7 @@ function updateStreak(level) {
         localStorage.setItem("lastDate", today);
     }
 
-    document.getElementById("score").innerHTML = 
-        level + " | 🔥 Streak: " + streak;
+    return streak; // ✅ return important
 }
 </script>
 
