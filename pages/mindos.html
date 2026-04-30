@@ -326,31 +326,41 @@ function showDecision(){
   page3.classList.remove("active");
   page4.classList.add("active");
 
-  const decision={
-    hi:{
-      red:"इस समय आपका मन अत्यधिक दबाव और उलझन में है। निर्णय को कुछ समय के लिए टालना बेहतर रहेगा।",
-      yellow:"आपका मन आंशिक रूप से स्पष्ट है। शांत होकर विचार करने से निर्णय बेहतर होगा।",
-      green:"आपका मन शांत और स्पष्ट है। आत्मविश्वास के साथ निर्णय लिया जा सकता है।"
-    },
-    en:{
-      red:"Your mind is under heavy pressure and confusion. It is better to delay decisions for now.",
-      yellow:"Your mind is partially clear. Calm reflection will improve your decision.",
-      green:"Your mind is calm and clear. This is a good time to decide with confidence."
-    }
-  };
+ const decision = {
+  hi: {
+    red: "इस समय आपका मन अत्यधिक दबाव, उलझन और असमंजस की स्थिति में है।\nऐसे में लिया गया निर्णय स्पष्ट नहीं होगा और बाद में पछतावा भी हो सकता है।\nबेहतर यही होगा कि आप कुछ समय के लिए रुकें,\nअपने मन को शांत होने दें और फिर निर्णय लें।",
 
-  const meditation={
-    hi:{
-      red:"🧘 3 मिनट तक केवल श्वास पर ध्यान दें।",
-      yellow:"🧘 5 गहरी साँस लें और शरीर को ढीला छोड़ दें।",
-      green:"🧘 शांत बैठकर कृतज्ञता अनुभव करें। नाभि  तक गहरी सांस लें।"
-    },
-    en:{
-      red:"🧘 Focus on your breath for 3 minutes.",
-      yellow:"🧘 Take 5 deep breaths and relax your body.",
-      green:"🧘 Sit calmly and feel gratitude."
-    }
-  };
+    yellow: "आपका मन आंशिक रूप से स्पष्ट है, लेकिन अभी भी कुछ संदेह और भ्रम बना हुआ है।\nयदि आप थोड़ी देर रुककर शांत मन से विचार करेंगे,\nतो स्थिति और स्पष्ट हो जाएगी और निर्णय बेहतर होगा।\nजल्दबाज़ी से बचें और समझदारी से आगे बढ़ें।",
+
+    green: "आपका मन इस समय शांत, संतुलित और स्पष्ट अवस्था में है।\nआप स्थिति को सही ढंग से देख पा रहे हैं और आपके विचार स्थिर हैं।\nयह निर्णय लेने के लिए सही समय है,\nआप आत्मविश्वास के साथ आगे बढ़ सकते हैं।"
+  },
+
+  en: {
+    red: "Your mind is under heavy pressure, confusion, and emotional disturbance.\nAny decision taken right now may lack clarity and could lead to regret later.\nIt is better to pause for a while,\nallow your mind to settle, and then decide.",
+
+    yellow: "Your mind is partially clear, but some doubts and confusion still remain.\nTaking a little time to reflect calmly will bring more clarity.\nAvoid rushing into decisions,\nand move forward with awareness and patience.",
+
+    green: "Your mind is calm, balanced, and clear at this moment.\nYou are able to see the situation with clarity and stability.\nThis is a good time to make a decision,\nso move ahead with confidence and trust in yourself."
+  }
+};
+
+const meditation = {
+  hi: {
+    red: "🧘 3 मिनट तक अपनी श्वास पर ध्यान केंद्रित करें।\nधीरे-धीरे सांस लें और छोड़ें,\nहर श्वास के साथ मन को शांत होने दें।",
+
+    yellow: "🧘 5 गहरी और लंबी सांसें लें,\nहर सांस के साथ शरीर को ढीला छोड़ते जाएं।\nतनाव को छोड़कर पूरी तरह रिलैक्स होने का अनुभव करें।",
+
+    green: "🧘 शांत बैठकर भीतर की कृतज्ञता को महसूस करें।\nअपने हृदय में शांति और संतोष का अनुभव करें,\nऔर नाभि तक गहरी, सहज सांस लें।"
+  },
+
+  en: {
+    red: "🧘 Focus on your breath for 3 minutes.\nInhale and exhale slowly,\nallow your mind to gradually calm down.",
+
+    yellow: "🧘 Take 5 deep and slow breaths.\nWith each breath, relax your body more deeply,\nand let go of all tension.",
+
+    green: "🧘 Sit calmly and feel a sense of gratitude within.\nExperience inner peace and contentment,\nand take deep, gentle breaths down to your core."
+  }
+};
 
   decisionText.className="decision "+zone;
   meditationText.classList.remove("show");
