@@ -1296,13 +1296,12 @@ z-index:9998;
 <div class="mainCard">
     <div class="mainText">
         ⚡सवाल यह है,<br>
-        क्या माफ कर देना
-        कमजोरी की निशानी है...?<br><br>
+        क्या हर इंसान के जीवन में
+        एक उद्देश्य होता है...?<br><br>
 
         <span class="highlightText">
-        आपके अनुसार किसी को
-        माफ करना आसान है
-        या उसे भूल जाना?
+        आपको क्या लगता है,
+        आपका जीवन किस उद्देश्य के लिए है ?
         </span><br>
     </div>
 </div>
@@ -1312,16 +1311,15 @@ z-index:9998;
     <div class="cardTitle">🌿 आज का विचार</div>
 
     <div class="cardText">
-        “हम अक्सर सोचते हैं कि<br>
-        जिंदगी की सबसे बड़ी कमी<br>
-        हमारे पास मौजूद चीज़ों की है,<br>
-        जबकि सच्चाई यह है कि<br>
-        कमी संतोष की होती है।<br><br>
+        “रिश्तों की खूबसूरती<br>
+        शब्दों से नहीं,<br>
+        बल्कि समझ और विश्वास से<br>
+        बनी रहती है।<br><br>
 
-        जिस दिन इंसान जो है<br>
-        उसकी कद्र करना सीख जाता है,<br>
-        उसी दिन से शिकायतें कम<br>
-        और खुशियाँ बढ़ने लगती हैं।” 
+        जहाँ अहंकार कम और<br>
+        अपनापन अधिक होता है,<br>
+        वहाँ रिश्ते समय के साथ<br>
+        और मजबूत होते जाते हैं।” 
     </div>
 
 </div>
@@ -1330,11 +1328,14 @@ z-index:9998;
   <div class="cardTitle">🔥 आज का रहस्य</div>
  <!-- AUDIO PLAYER -->
 <div style="margin-top:18px;">
-<a href="audio/audio5.mp3" target="_blank" class="audioBtn">
-  🎧 कल्पना की शक्ति
-</a>
-</div>
+  <button class="audioBtn" onclick="playAudio()">
+    🎧 कृष्ण की शक्ति
+  </button>
 
+  <audio id="todayAudio">
+    <source src="audio/audio5.mp3" type="audio/mpeg">
+  </audio>
+</div>
   <!-- BUTTONS -->
   <div class="btnWrap">
    <div class="mainBtn" onclick="location.href='pages/gyan-parakh.html'">
@@ -1911,14 +1912,14 @@ if ('serviceWorker' in navigator) {
   alert("आज का पूरा संदेश यहाँ दिखेगा 🔥");
 }
    
-function playAudio(){
-  const audio = document.getElementById("todayAudio");
+function playAudio() {
+    const audio = document.getElementById("todayAudio");
 
-  if(audio.paused){
-    audio.play();
-  } else {
-    audio.pause();
-  }
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
 }
 </script>
 <div id="updatePopup" style="
