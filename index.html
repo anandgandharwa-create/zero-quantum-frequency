@@ -1328,13 +1328,11 @@ z-index:9998;
   <div class="cardTitle">🔥 आज का रहस्य</div>
  <!-- AUDIO PLAYER -->
 <div style="margin-top:18px;">
- <button type="button" class="audioBtn" onclick="playAudio()">
-🎧 कृष्ण की शक्ति
-</button>
 
-<audio id="todayAudio" preload="auto">
-  <source src="audio/audio5.mp3" type="audio/mpeg">
-</audio>
+<a href="audio/audio5.mp3" target="_blank" class="audioBtn">
+🎧 कृष्ण की शक्ति
+</a>
+
 </div>
   <!-- BUTTONS -->
   <div class="btnWrap">
@@ -1912,15 +1910,6 @@ if ('serviceWorker' in navigator) {
   alert("आज का पूरा संदेश यहाँ दिखेगा 🔥");
 }
    
-function playAudio() {
-    alert("क्लिक हुआ");
-
-    var audio = document.getElementById("todayAudio");
-
-    audio.play()
-      .then(() => alert("ऑडियो शुरू हो गया"))
-      .catch(err => alert(err));
-}
 </script>
 <div id="updatePopup" style="
 position:fixed;
